@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <!--控制台输出log-->
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %d{yyyy-MM-dd} [%thread] %level %logger - %msg %n
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+    <!--文件存储-->
+    <appender name="FileStore" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <file>logs/sobblogsystem.log</file>
+        <!--分日期存储，最多保存30天，每个文件最大10M-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>logs/sobblogsystem.%d.%i.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <maxFileSize>10MB</maxFileSize>
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                %d{yyyy-MM-dd} [%thread] %level %logger - %msg %n
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+    <logger name="com.lynnwork.sobblogsystem" level="INFO" additivity="false">
+        <appender-ref ref="Console"/>
+        <appender-ref ref="FileStore"/>
+    </logger>
+    <!-- 默认控制台输出日志级别 -->
+    <root level="INFO">
+        <appender-ref ref="Console"/>
+    </root>
+</configuration>
