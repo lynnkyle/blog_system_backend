@@ -2,6 +2,10 @@ package com.lynnwork.sobblogsystem.service;
 
 import com.lynnwork.sobblogsystem.pojo.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.lynnwork.sobblogsystem.response.ResponseResult;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.xml.ws.Response;
 
 /**
  * <p>
@@ -12,5 +16,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2024-10-28
  */
 public interface IUserService extends IService<User> {
-
+    ResponseResult initManagerAccount(User user, HttpServletRequest request);
 }
