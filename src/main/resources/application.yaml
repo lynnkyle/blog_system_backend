@@ -34,14 +34,28 @@ spring:
       fetch-size: 100
       max-rows: 1000
   redis:
-    url: redis://localhost:6379
+    #url: redis://192.168.80.154:6379
+    host: redis://192.168.80.154
+    port: 6379
     username: root
     password: 123456
-    client-type: jedis
   servlet:
     multipart:
       max-file-size: 1MB
       max-request-size: 10MB
+  mail:
+    protocol: smtp
+    host: smtp.163.com
+    port: 465
+    username: 13788809958@163.com
+    password: JRuG3NnSChYaS9Lk
+    properties:
+      mail:
+        smtp:
+          auth: true
+          timeout: 10000
+          ssl:
+            enable: true
 mybatis-plus:
   mapper-locations: classpath:/com/lynnwork/sobblogsystem/mapper/xml/*.xml
   configuration:
