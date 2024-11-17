@@ -1,450 +1,153 @@
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 16828 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 9.885 seconds (JVM running for 12.256) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 16828 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 3.0 seconds (JVM running for 99.231) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 16828 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.579 seconds (JVM running for 104.29) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 16828 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.202 seconds (JVM running for 137.856) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 16828 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.895 seconds (JVM running for 142.323) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 2352 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 5.181 seconds (JVM running for 6.88) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 9304 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 6.06 seconds (JVM running for 8.038) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 9304 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.221 seconds (JVM running for 426.774) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 9304 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.864 seconds (JVM running for 432.032) 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - request:SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@62210d0a] 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 9304 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.128 seconds (JVM running for 464.58) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 9304 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.734 seconds (JVM running for 468.651) 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - request:org.springframework.security.web.firewall.StrictHttpFirewall$StrictFirewalledRequest$2@69c5c57 
-2024-11-12 [http-nio-8090-exec-8] INFO com.lynnwork.sobblogsystem.controller.TestController - request:org.springframework.security.web.firewall.StrictHttpFirewall$StrictFirewalledRequest$2@6f76dce6 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 5.24 seconds (JVM running for 6.97) 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - host 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - connection 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - cache-control 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua-mobile 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua-platform 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - upgrade-insecure-requests 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - user-agent 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - accept 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-site 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-mode 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-user 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-dest 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - accept-encoding 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - accept-language 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - cookie 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - host 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - connection 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - cache-control 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua-mobile 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua-platform 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - upgrade-insecure-requests 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - user-agent 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - accept 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-site 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-mode 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-user 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-dest 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - accept-encoding 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - accept-language 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - cookie 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - host 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - connection 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - cache-control 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua-mobile 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua-platform 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - upgrade-insecure-requests 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - user-agent 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - accept 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-site 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-mode 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-user 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-dest 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - accept-encoding 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - accept-language 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - cookie 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - host 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - connection 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - cache-control 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua-mobile 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua-platform 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - upgrade-insecure-requests 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - user-agent 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - accept 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-site 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-mode 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-user 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-dest 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - accept-encoding 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - accept-language 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - cookie 
-2024-11-12 [http-nio-8090-exec-8] INFO com.lynnwork.sobblogsystem.controller.TestController - host 
-2024-11-12 [http-nio-8090-exec-8] INFO com.lynnwork.sobblogsystem.controller.TestController - connection 
-2024-11-12 [http-nio-8090-exec-8] INFO com.lynnwork.sobblogsystem.controller.TestController - cache-control 
-2024-11-12 [http-nio-8090-exec-8] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua 
-2024-11-12 [http-nio-8090-exec-8] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua-mobile 
-2024-11-12 [http-nio-8090-exec-8] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua-platform 
-2024-11-12 [http-nio-8090-exec-8] INFO com.lynnwork.sobblogsystem.controller.TestController - upgrade-insecure-requests 
-2024-11-12 [http-nio-8090-exec-8] INFO com.lynnwork.sobblogsystem.controller.TestController - user-agent 
-2024-11-12 [http-nio-8090-exec-8] INFO com.lynnwork.sobblogsystem.controller.TestController - accept 
-2024-11-12 [http-nio-8090-exec-8] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-site 
-2024-11-12 [http-nio-8090-exec-8] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-mode 
-2024-11-12 [http-nio-8090-exec-8] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-user 
-2024-11-12 [http-nio-8090-exec-8] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-dest 
-2024-11-12 [http-nio-8090-exec-8] INFO com.lynnwork.sobblogsystem.controller.TestController - accept-encoding 
-2024-11-12 [http-nio-8090-exec-8] INFO com.lynnwork.sobblogsystem.controller.TestController - accept-language 
-2024-11-12 [http-nio-8090-exec-8] INFO com.lynnwork.sobblogsystem.controller.TestController - cookie 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.215 seconds (JVM running for 389.051) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.334 seconds (JVM running for 394.017) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.112 seconds (JVM running for 405.049) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.126 seconds (JVM running for 409.852) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.563 seconds (JVM running for 414.997) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.596 seconds (JVM running for 419.035) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.272 seconds (JVM running for 443.512) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.988 seconds (JVM running for 448.18) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.439 seconds (JVM running for 460.388) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.845 seconds (JVM running for 464.64) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.791 seconds (JVM running for 498.864) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.622 seconds (JVM running for 588.49) 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - host 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - connection 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - cache-control 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua-mobile 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua-platform 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - upgrade-insecure-requests 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - user-agent 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - accept 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-site 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-mode 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-user 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-dest 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - accept-encoding 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - accept-language 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - cookie 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - host 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - connection 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - cache-control 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua-mobile 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua-platform 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - upgrade-insecure-requests 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - user-agent 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - accept 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-site 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-mode 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-user 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-dest 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - accept-encoding 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - accept-language 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - cookie 
-2024-11-12 [http-nio-8090-exec-6] INFO com.lynnwork.sobblogsystem.controller.TestController - host 
-2024-11-12 [http-nio-8090-exec-6] INFO com.lynnwork.sobblogsystem.controller.TestController - connection 
-2024-11-12 [http-nio-8090-exec-6] INFO com.lynnwork.sobblogsystem.controller.TestController - cache-control 
-2024-11-12 [http-nio-8090-exec-6] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua 
-2024-11-12 [http-nio-8090-exec-6] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua-mobile 
-2024-11-12 [http-nio-8090-exec-6] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-ch-ua-platform 
-2024-11-12 [http-nio-8090-exec-6] INFO com.lynnwork.sobblogsystem.controller.TestController - upgrade-insecure-requests 
-2024-11-12 [http-nio-8090-exec-6] INFO com.lynnwork.sobblogsystem.controller.TestController - user-agent 
-2024-11-12 [http-nio-8090-exec-6] INFO com.lynnwork.sobblogsystem.controller.TestController - accept 
-2024-11-12 [http-nio-8090-exec-6] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-site 
-2024-11-12 [http-nio-8090-exec-6] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-mode 
-2024-11-12 [http-nio-8090-exec-6] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-user 
-2024-11-12 [http-nio-8090-exec-6] INFO com.lynnwork.sobblogsystem.controller.TestController - sec-fetch-dest 
-2024-11-12 [http-nio-8090-exec-6] INFO com.lynnwork.sobblogsystem.controller.TestController - accept-encoding 
-2024-11-12 [http-nio-8090-exec-6] INFO com.lynnwork.sobblogsystem.controller.TestController - accept-language 
-2024-11-12 [http-nio-8090-exec-6] INFO com.lynnwork.sobblogsystem.controller.TestController - cookie 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.182 seconds (JVM running for 634.433) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.639 seconds (JVM running for 638.459) 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [http-nio-8090-exec-5] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [http-nio-8090-exec-8] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [http-nio-8090-exec-5] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [http-nio-8090-exec-8] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [http-nio-8090-exec-10] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.182 seconds (JVM running for 749.626) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.812 seconds (JVM running for 754.274) 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.633 seconds (JVM running for 817.907) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.131 seconds (JVM running for 822.545) 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.129 seconds (JVM running for 932.274) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.055 seconds (JVM running for 937.842) 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.864 seconds (JVM running for 990.916) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.916 seconds (JVM running for 995.381) 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [http-nio-8090-exec-5] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.131 seconds (JVM running for 1028.013) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.633 seconds (JVM running for 1032.158) 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19964 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.009 seconds (JVM running for 1097.931) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 16916 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 6.832 seconds (JVM running for 8.705) 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 16916 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.324 seconds (JVM running for 19.796) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 16916 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.299 seconds (JVM running for 25.752) 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [http-nio-8090-exec-5] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 16916 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.897 seconds (JVM running for 179.952) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 16916 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.685 seconds (JVM running for 183.968) 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>0 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>0 
-2024-11-12 [http-nio-8090-exec-5] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>0 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>0 
-2024-11-12 [http-nio-8090-exec-6] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>0 
-2024-11-12 [http-nio-8090-exec-9] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>0 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 16916 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.839 seconds (JVM running for 886.842) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 16916 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.695 seconds (JVM running for 891.917) 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>0 
-2024-11-12 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>0 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 3052 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 5.068 seconds (JVM running for 6.821) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 3052 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.365 seconds (JVM running for 21.0) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 3052 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.853 seconds (JVM running for 25.329) 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>1638764400000 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>1638764400000 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 3052 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.097 seconds (JVM running for 63.098) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 3052 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.728 seconds (JVM running for 67.15) 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>1000 
-2024-11-12 [http-nio-8090-exec-6] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>1000 
-2024-11-12 [http-nio-8090-exec-7] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>1000 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 3052 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.052 seconds (JVM running for 136.784) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 3052 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.724 seconds (JVM running for 140.891) 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>0 
-2024-11-12 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>0 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 3052 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.022 seconds (JVM running for 255.837) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 3052 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.662 seconds (JVM running for 259.865) 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>0 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>0 
-2024-11-12 [http-nio-8090-exec-7] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>0 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 3052 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.085 seconds (JVM running for 287.202) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 3052 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.738 seconds (JVM running for 291.435) 
-2024-11-12 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>-1 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - if-modified-since=====>1000 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 3052 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.999 seconds (JVM running for 374.518) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 3052 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.892 seconds (JVM running for 378.924) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 3052 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.913 seconds (JVM running for 478.363) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 3052 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.69 seconds (JVM running for 482.382) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 3052 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.516 seconds (JVM running for 515.381) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 3052 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.621 seconds (JVM running for 519.647) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 3052 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.006 seconds (JVM running for 530.463) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 3052 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.753 seconds (JVM running for 534.623) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 936 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 5.612 seconds (JVM running for 7.386) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 936 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.016 seconds (JVM running for 1490.65) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 936 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.929 seconds (JVM running for 1495.191) 
-2024-11-12 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController - content:yavye 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 936 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.187 seconds (JVM running for 1620.544) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 936 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.65 seconds (JVM running for 1624.54) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 936 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.785 seconds (JVM running for 3327.355) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 936 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 2.197 seconds (JVM running for 3633.178) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 936 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 936 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.957 seconds (JVM running for 4126.353) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 936 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-12 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 1.854 seconds (JVM running for 4145.846) 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - Starting SobBlogSystemApplicationTests using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 18384 (started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - No active profile set, falling back to 1 default profile: "default" 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - Started SobBlogSystemApplicationTests in 8.354 seconds (JVM running for 9.918) 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - Starting SobBlogSystemApplicationTests using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 16824 (started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - No active profile set, falling back to 1 default profile: "default" 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - Started SobBlogSystemApplicationTests in 11.227 seconds (JVM running for 12.668) 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - Starting SobBlogSystemApplicationTests using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 6728 (started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - No active profile set, falling back to 1 default profile: "default" 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - Started SobBlogSystemApplicationTests in 9.813 seconds (JVM running for 11.511) 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - Starting SobBlogSystemApplicationTests using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 17380 (started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - No active profile set, falling back to 1 default profile: "default" 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - Started SobBlogSystemApplicationTests in 9.891 seconds (JVM running for 11.542) 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - Starting SobBlogSystemApplicationTests using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 7028 (started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - No active profile set, falling back to 1 default profile: "default" 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - Starting SobBlogSystemApplicationTests using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 5864 (started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - No active profile set, falling back to 1 default profile: "default" 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - Started SobBlogSystemApplicationTests in 18.204 seconds (JVM running for 20.367) 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - Started SobBlogSystemApplicationTests in 20.947 seconds (JVM running for 23.876) 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - Starting SobBlogSystemApplicationTests using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 14840 (started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - No active profile set, falling back to 1 default profile: "default" 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - Started SobBlogSystemApplicationTests in 11.496 seconds (JVM running for 13.785) 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - Starting SobBlogSystemApplicationTests using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 18184 (started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - No active profile set, falling back to 1 default profile: "default" 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - Started SobBlogSystemApplicationTests in 11.599 seconds (JVM running for 13.342) 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - Starting SobBlogSystemApplicationTests using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 8748 (started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - No active profile set, falling back to 1 default profile: "default" 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - Started SobBlogSystemApplicationTests in 8.975 seconds (JVM running for 10.493) 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - Starting SobBlogSystemApplicationTests using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 19516 (started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - No active profile set, falling back to 1 default profile: "default" 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - Started SobBlogSystemApplicationTests in 9.248 seconds (JVM running for 10.787) 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - Starting SobBlogSystemApplicationTests using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 18812 (started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - No active profile set, falling back to 1 default profile: "default" 
-2024-11-13 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests - Started SobBlogSystemApplicationTests in 9.949 seconds (JVM running for 11.447) 
-2024-11-13 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 5992 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-13 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-13 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 16516 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-13 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-13 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 13612 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-13 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-13 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 17940 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-13 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-13 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 5560 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-13 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-13 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 17988 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-13 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-13 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 6824 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-13 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-13 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 6.604 seconds (JVM running for 8.532) 
-2024-11-13 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 7360 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
-2024-11-13 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - No active profile set, falling back to 1 default profile: "default" 
-2024-11-13 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication - Started SobBlogSystemApplication in 9.31 seconds (JVM running for 11.458) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 20456 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 14888 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 11912 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 8044 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 15380 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 5.784 seconds (JVM running for 7.543) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 15380 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 2.542 seconds (JVM running for 285.185) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 15380 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 1.872 seconds (JVM running for 289.648) 
+2024-11-17 [http-nio-8090-exec-1] ERROR com.lynnwork.sobblogsystem.utils.RedisUtils c.l.s.u.RedisUtils - Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to redis://192.168.80.154:6379 
+2024-11-17 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:7ambt 
+2024-11-17 [http-nio-8090-exec-2] ERROR com.lynnwork.sobblogsystem.utils.RedisUtils c.l.s.u.RedisUtils - Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to redis://192.168.80.154:6379 
+2024-11-17 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:mukra 
+2024-11-17 [http-nio-8090-exec-4] ERROR com.lynnwork.sobblogsystem.utils.RedisUtils c.l.s.u.RedisUtils - Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to redis://192.168.80.154:6379 
+2024-11-17 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:cz72c 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 13196 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 5.48 seconds (JVM running for 7.247) 
+2024-11-17 [http-nio-8090-exec-1] ERROR com.lynnwork.sobblogsystem.utils.RedisUtils c.l.s.u.RedisUtils - Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to redis://192.168.80.154:6379 
+2024-11-17 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:fmvxs 
+2024-11-17 [http-nio-8090-exec-1] ERROR com.lynnwork.sobblogsystem.utils.RedisUtils c.l.s.u.RedisUtils - Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to redis://192.168.80.154:6379 
+2024-11-17 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:tb9x2 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 20124 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 4.5 seconds (JVM running for 5.763) 
+2024-11-17 [http-nio-8090-exec-1] ERROR com.lynnwork.sobblogsystem.utils.RedisUtils c.l.s.u.RedisUtils - Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to redis://192.168.80.154:6379 
+2024-11-17 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:r2er5 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 22204 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 4.542 seconds (JVM running for 5.837) 
+2024-11-17 [http-nio-8090-exec-1] ERROR com.lynnwork.sobblogsystem.utils.RedisUtils c.l.s.u.RedisUtils - Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.80.154:6379 
+2024-11-17 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:rd7rj 
+2024-11-17 [http-nio-8090-exec-2] ERROR com.lynnwork.sobblogsystem.utils.RedisUtils c.l.s.u.RedisUtils - Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.80.154:6379 
+2024-11-17 [http-nio-8090-exec-2] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:erg4y 
+2024-11-17 [http-nio-8090-exec-3] ERROR com.lynnwork.sobblogsystem.utils.RedisUtils c.l.s.u.RedisUtils - Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.80.154:6379 
+2024-11-17 [http-nio-8090-exec-3] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:b3ee2 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 14140 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 4.565 seconds (JVM running for 5.877) 
+2024-11-17 [http-nio-8090-exec-1] ERROR com.lynnwork.sobblogsystem.utils.RedisUtils c.l.s.u.RedisUtils - Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.80.154:6379 
+2024-11-17 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:hez7x 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 13460 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 4.516 seconds (JVM running for 5.817) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 13460 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 20460 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 4.642 seconds (JVM running for 5.928) 
+2024-11-17 [http-nio-8090-exec-1] ERROR com.lynnwork.sobblogsystem.utils.RedisUtils c.l.s.u.RedisUtils - Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.80.154:6379 
+2024-11-17 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:kryhe 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 20960 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 4.563 seconds (JVM running for 5.913) 
+2024-11-17 [http-nio-8090-exec-1] ERROR com.lynnwork.sobblogsystem.utils.RedisUtils c.l.s.u.RedisUtils - Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.80.154:6379 
+2024-11-17 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:4cd24 
+2024-11-17 [http-nio-8090-exec-1] ERROR com.lynnwork.sobblogsystem.utils.RedisUtils c.l.s.u.RedisUtils - Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.80.154:6379 
+2024-11-17 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:xgfjq 
+2024-11-17 [http-nio-8090-exec-5] ERROR com.lynnwork.sobblogsystem.utils.RedisUtils c.l.s.u.RedisUtils - Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.80.154:6379 
+2024-11-17 [http-nio-8090-exec-5] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:4cdjf 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 17416 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 4.558 seconds (JVM running for 5.827) 
+2024-11-17 [http-nio-8090-exec-1] ERROR com.lynnwork.sobblogsystem.utils.RedisUtils c.l.s.u.RedisUtils - Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.80.154:6379 
+2024-11-17 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:qwrtq 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 10220 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 5.831 seconds (JVM running for 7.693) 
+2024-11-17 [http-nio-8090-exec-1] ERROR com.lynnwork.sobblogsystem.utils.RedisUtils c.l.s.u.RedisUtils - Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.80.154:6379 
+2024-11-17 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:zvadm 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 9412 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 4.62 seconds (JVM running for 5.892) 
+2024-11-17 [http-nio-8090-exec-1] ERROR com.lynnwork.sobblogsystem.utils.RedisUtils c.l.s.u.RedisUtils - Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.80.154:6379 
+2024-11-17 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:ggdjg 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 14472 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 4.936 seconds (JVM running for 6.311) 
+2024-11-17 [http-nio-8090-exec-1] ERROR com.lynnwork.sobblogsystem.utils.RedisUtils c.l.s.u.RedisUtils - Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.80.154:6379 
+2024-11-17 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:x6rye 
+2024-11-17 [http-nio-8090-exec-1] ERROR com.lynnwork.sobblogsystem.utils.RedisUtils c.l.s.u.RedisUtils - Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.80.154:6379 
+2024-11-17 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:5hske 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 15484 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 5.078 seconds (JVM running for 6.479) 
+2024-11-17 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:zys6w 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 24144 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 4.966 seconds (JVM running for 6.3) 
+2024-11-17 [http-nio-8090-exec-1] ERROR com.lynnwork.sobblogsystem.utils.RedisUtils c.l.s.u.RedisUtils - Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.80.154:6379 
+2024-11-17 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:8btpe 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 15436 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 4.797 seconds (JVM running for 6.05) 
+2024-11-17 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:zhajv 
+2024-11-17 [http-nio-8090-exec-8] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:s4pty 
+2024-11-17 [http-nio-8090-exec-10] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:7dhcp 
+2024-11-17 [http-nio-8090-exec-6] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:mzwcm 
+2024-11-17 [http-nio-8090-exec-4] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:2cehs 
+2024-11-17 [http-nio-8090-exec-9] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:8hacs 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 15160 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 4.898 seconds (JVM running for 6.286) 
+2024-11-17 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:uvk49 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 17652 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 5.106 seconds (JVM running for 6.373) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 21112 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 5.098 seconds (JVM running for 6.454) 
+2024-11-17 [http-nio-8090-exec-1] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:4fy5n 
+2024-11-17 [http-nio-8090-exec-8] INFO com.lynnwork.sobblogsystem.controller.TestController c.l.s.c.TestController - content:2cxny 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 21112 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 1.701 seconds (JVM running for 282.102) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 21112 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 1.904 seconds (JVM running for 943.724) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 21112 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 1.828 seconds (JVM running for 2752.609) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 1364 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 4.903 seconds (JVM running for 6.456) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 1364 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 1.949 seconds (JVM running for 776.849) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 1364 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests o.s.b.StartupInfoLogger - Starting SobBlogSystemApplicationTests using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 23512 (started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 2.479 seconds (JVM running for 781.65) 
+2024-11-17 [main] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplicationTests o.s.b.StartupInfoLogger - Started SobBlogSystemApplicationTests in 8.295 seconds (JVM running for 9.976) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 1364 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 1.74 seconds (JVM running for 1184.194) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 1364 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 1.955 seconds (JVM running for 1188.374) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 1364 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 2.155 seconds (JVM running for 1829.301) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Starting SobBlogSystemApplication using Java 1.8.0_301 on DESKTOP-BOJ5191 with PID 1364 (C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend\target\classes started by kyle in C:\Users\kyle\Desktop\阳光沙滩工具\SobBlogSystemBackend) 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.SpringApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-11-17 [restartedMain] INFO com.lynnwork.sobblogsystem.SobBlogSystemApplication o.s.b.StartupInfoLogger - Started SobBlogSystemApplication in 1.735 seconds (JVM running for 1833.402) 

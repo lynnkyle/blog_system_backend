@@ -34,10 +34,9 @@ spring:
       fetch-size: 100
       max-rows: 1000
   redis:
-    #url: redis://192.168.80.154:6379
-    host: redis://192.168.80.154
+    # url: redis://123456@192.168.80.154:6379
+    host: 192.168.80.154
     port: 6379
-    username: root
     password: 123456
   servlet:
     multipart:

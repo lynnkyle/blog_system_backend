@@ -1,5 +1,6 @@
 package com.lynnwork.sobblogsystem;
 
+import com.lynnwork.sobblogsystem.utils.RedisUtils;
 import com.lynnwork.sobblogsystem.utils.SnowflakeIdWorker;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -23,5 +24,10 @@ public class SobBlogSystemApplication {
     @Bean
     public BCryptPasswordEncoder encoderPassword() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public RedisUtils redisUtils() {
+        return new RedisUtils();
     }
 }

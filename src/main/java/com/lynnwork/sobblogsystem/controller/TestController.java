@@ -1,18 +1,27 @@
 package com.lynnwork.sobblogsystem.controller;
 
+import com.lynnwork.sobblogsystem.utils.Constants;
+import com.lynnwork.sobblogsystem.utils.RedisUtils;
 import com.wf.captcha.SpecCaptcha;
 import com.wf.captcha.base.Captcha;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
 
 @Slf4j
 @Controller
+@RequestMapping("/test")
 public class TestController {
-    @RequestMapping("/captcha")
+
+    @Autowired
+    private RedisUtils redisUtils;
+
+    @GetMapping("captcha")
     public void captcha(HttpServletRequest request, HttpServletResponse response) throws Exception {
         // 设置请求头为输出图片类型
         response.setContentType("image/gif");
@@ -25,8 +34,8 @@ public class TestController {
         request.getSession().setAttribute("captcha", specCaptcha.text().toLowerCase());
         specCaptcha.out(response.getOutputStream());
         String content = specCaptcha.text().toLowerCase();
-        request.getSession().setAttribute("captcha", content);
-        log.info("content:{}",content);
+        redisUtils.set(Constants.User.KEY_CAPTCHA + "123456", content, 60 * 1);
+        log.info("content:{}", content);
     }
 
     @GetMapping("/test_img")
@@ -53,4 +62,5 @@ public class TestController {
             specCaptcha.out(response.getOutputStream());
         }
     }
+
 }
