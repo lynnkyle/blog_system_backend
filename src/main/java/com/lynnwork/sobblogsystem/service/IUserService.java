@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.lynnwork.sobblogsystem.response.ResponseResult;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.xml.ws.Response;
 
 /**
@@ -17,4 +18,8 @@ import javax.xml.ws.Response;
  */
 public interface IUserService extends IService<User> {
     ResponseResult initManagerAccount(User user, HttpServletRequest request);
+
+    void createCapture(HttpServletResponse response, String captchaKey) throws Exception;
+
+    ResponseResult sendEmail(HttpServletRequest request, String emailAddress) throws Exception;
 }

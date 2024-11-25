@@ -3,6 +3,9 @@ server:
 spring:
   application:
     name: sob_blog_system
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   datasource:
     url: jdbc:mysql://192.168.80.154:3306/sob_blog_system
     username: root

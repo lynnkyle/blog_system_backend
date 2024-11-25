@@ -11,18 +11,18 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 
 import javax.mail.internet.MimeMessage;
 import java.io.File;
+import java.util.Calendar;
+import java.util.Date;
 
 
 @Slf4j
 @SpringBootTest
 class SobBlogSystemApplicationTests {
     @Autowired
-    private DemoMapper demoMapper;
-    @Autowired
     private JavaMailSender mailSender;
 
     @Test
-    public void mapperTest() throws Exception {
+    public void messageTest() throws Exception {
         MimeMessage mimeMessage = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
         //1.设置邮件的发送人、收件人、主题
@@ -41,10 +41,5 @@ class SobBlogSystemApplicationTests {
         helper.addAttachment("avatar.html", file2);
         //4.发送邮件
         mailSender.send(mimeMessage);
-    }
-
-    @Test
-    public void dateTest() {
-        System.out.println(System.currentTimeMillis());
     }
 }

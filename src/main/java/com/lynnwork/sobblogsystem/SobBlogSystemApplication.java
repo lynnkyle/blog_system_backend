@@ -1,12 +1,14 @@
 package com.lynnwork.sobblogsystem;
 
-import com.lynnwork.sobblogsystem.utils.RedisUtils;
+import com.lynnwork.sobblogsystem.utils.RedisUtil;
 import com.lynnwork.sobblogsystem.utils.SnowflakeIdWorker;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import java.util.Random;
 
 @MapperScan("com.lynnwork.sobblogsystem.mapper")
 @SpringBootApplication
@@ -27,7 +29,12 @@ public class SobBlogSystemApplication {
     }
 
     @Bean
-    public RedisUtils redisUtils() {
-        return new RedisUtils();
+    public RedisUtil redisUtils() {
+        return new RedisUtil();
+    }
+
+    @Bean
+    public Random random() {
+        return new Random();
     }
 }
