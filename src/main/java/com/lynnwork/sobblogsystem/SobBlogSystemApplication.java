@@ -1,5 +1,6 @@
 package com.lynnwork.sobblogsystem;
 
+import com.lynnwork.sobblogsystem.utils.JwtUtil;
 import com.lynnwork.sobblogsystem.utils.RedisUtil;
 import com.lynnwork.sobblogsystem.utils.SnowflakeIdWorker;
 import org.mybatis.spring.annotation.MapperScan;
@@ -29,7 +30,7 @@ public class SobBlogSystemApplication {
     }
 
     @Bean
-    public RedisUtil redisUtils() {
+    public RedisUtil redisUtil() {
         return new RedisUtil();
     }
 

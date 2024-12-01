@@ -1,8 +1,11 @@
 package com.lynnwork.sobblogsystem.pojo;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.Date;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -84,12 +87,12 @@ public class Article implements Serializable {
     /**
      * 发布时间
      */
-    private LocalDateTime publishTime;
+    private Date publishTime;
 
     /**
      * 更新时间
      */
-    private LocalDateTime updateTime;
+    private Date updateTime;
 
 
 }

@@ -12,5 +12,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2024-11-04
  */
 public interface SettingMapper extends BaseMapper<Setting> {
-    Setting findOneByKey(String key);
+    Setting selectByKey(String key);
 }

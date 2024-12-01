@@ -27,6 +27,10 @@ public class ResponseResult {
         return responseResult;
     }
 
+    public static ResponseResult GET(ResponseState state) {
+        return new ResponseResult(state);
+    }
+
     public static ResponseResult FAILED() {
         return new ResponseResult(ResponseState.FAILED);
     }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lynnwork.sobblogsystem.mapper.UserMapper">
-    <select id="findOneByUserName" resultType="com.lynnwork.sobblogsystem.pojo.User">
+    <select id="selectByUserName" resultType="com.lynnwork.sobblogsystem.pojo.User">
         select id,
                user_name,
                password,
@@ -17,7 +17,7 @@
         from tb_user
         where user_name = #{user_name}
     </select>
-    <select id="findOneByEmail" resultType="com.lynnwork.sobblogsystem.pojo.User">
+    <select id="selectByEmail" resultType="com.lynnwork.sobblogsystem.pojo.User">
         select id,
                user_name,
                password,

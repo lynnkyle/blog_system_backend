@@ -1,28 +1,33 @@
 package com.lynnwork.sobblogsystem.service.impl;
 
+import com.lynnwork.sobblogsystem.mapper.RefreshTokenMapper;
 import com.lynnwork.sobblogsystem.mapper.SettingMapper;
+import com.lynnwork.sobblogsystem.pojo.RefreshToken;
 import com.lynnwork.sobblogsystem.pojo.Setting;
 import com.lynnwork.sobblogsystem.pojo.User;
 import com.lynnwork.sobblogsystem.mapper.UserMapper;
 import com.lynnwork.sobblogsystem.response.ResponseResult;
+import com.lynnwork.sobblogsystem.response.ResponseState;
 import com.lynnwork.sobblogsystem.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.lynnwork.sobblogsystem.utils.Constants;
-import com.lynnwork.sobblogsystem.utils.RedisUtil;
-import com.lynnwork.sobblogsystem.utils.SnowflakeIdWorker;
-import com.lynnwork.sobblogsystem.utils.TextUtil;
+import com.lynnwork.sobblogsystem.utils.*;
 import com.wf.captcha.ArithmeticCaptcha;
 import com.wf.captcha.GifCaptcha;
 import com.wf.captcha.SpecCaptcha;
 import com.wf.captcha.base.Captcha;
+import io.jsonwebtoken.Claims;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.DigestUtils;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -33,6 +38,7 @@ import java.util.Random;
  * @author lynnkyle
  * @since 2024-10-28
  */
+@Slf4j
 @Service
 @Transactional
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
@@ -47,23 +53,27 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Autowired
     private BCryptPasswordEncoder encoder;
     @Autowired
-    private RedisUtil redisUtil;
-    @Autowired
     private Random random;
+    @Autowired
+    private RedisUtil redisUtil;
     @Autowired
     private UserMapper userMapper;
     @Autowired
     private SettingMapper settingMapper;
+    @Autowired
+    private RefreshTokenMapper refreshTokenMapper;
 
     /*
         初始化管理员账户
     */
     @Override
     public ResponseResult initManagerAccount(User user, HttpServletRequest request) {
-        Setting setting = settingMapper.findOneByKey(Constants.Setting.ADMIN_ACCOUNT_INIT_STATE);
-        if (setting != null) {
+        //1.检查是否有初始化(setting)
+        Setting settingFromDbByKey = settingMapper.selectByKey(Constants.Setting.ADMIN_ACCOUNT_INIT_STATE);
+        if (settingFromDbByKey != null) {
             return ResponseResult.FAILED("管理员账号已经初始化成功。");
         }
+        //2.检查数据(username、password、email)
         if (TextUtil.isEmpty(user.getUserName())) {
             return ResponseResult.FAILED("用户名不能为空。");
         }
@@ -73,6 +83,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         if (TextUtil.isEmpty(user.getEmail())) {
             return ResponseResult.FAILED("邮箱不能为空。");
         }
+        //3.补充用户数据
         user.setId(String.valueOf(idWorker.nextId()));
         user.setUserName(user.getUserName());
         user.setPassword(encoder.encode(user.getPassword()));
@@ -84,19 +95,17 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         user.setLogIp(request.getRemoteAddr());
         user.setCreateTime(new Date());
         user.setUpdateTime(new Date());
-        int check = userMapper.insert(user);
-        setting = new Setting();
+        //4.保存到数据库中
+        userMapper.insert(user);
+        //5.更新已经添加的标记(setting)
+        Setting setting = new Setting();
         setting.setId(String.valueOf(idWorker.nextId()));
         setting.setKey(Constants.Setting.ADMIN_ACCOUNT_INIT_STATE);
         setting.setValue("1");
         setting.setCreateTime(new Date());
         setting.setUpdateTime(new Date());
         settingMapper.insert(setting);
-        if (check == 1) {
-            return ResponseResult.SUCCESS("管理员初始化成功。");
-        } else {
-            return ResponseResult.FAILED("管理员初始化失败。");
-        }
+        return ResponseResult.SUCCESS("管理员初始化成功。");
     }
 
     /*
@@ -131,7 +140,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         captcha.setFont(captcha_font_types[fontType]);
         captcha.setCharType(Captcha.TYPE_DEFAULT);
         String content = captcha.text().toLowerCase();
-        redisUtil.set(Constants.User.KEY_CAPTCHA_CONTENT + captchaKey, content, 10 * 60);
+        redisUtil.set(Constants.User.KEY_CAPTCHA_CONTENT + key, content, 10 * 60);
         captcha.out(response.getOutputStream());
     }
 
@@ -140,13 +149,31 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     /*
         发送邮箱验证码
+        使用场景: 注册、找回密码、修改邮箱(输入新的邮箱)
+        注册(register):如果已经注册,提示该邮箱已经注册
+        找回密码(forget):如果没有注册过,提示该邮箱没有注册
+        修改邮箱(update):如果新的邮箱地址已经注册,提示该邮箱已注册;
     */
     @Override
-    public ResponseResult sendEmail(HttpServletRequest request, String emailAddress) throws Exception {
+    public ResponseResult sendEmailCode(HttpServletRequest request, String emailAddress, String type) throws Exception {
+        if (emailAddress == null) {
+            ResponseResult.FAILED("邮箱地址不可以为空。");
+        }
+        if ("register".equals(type) || "update".equals(type)) {
+            User userByEmail = userMapper.selectByEmail(emailAddress);
+            if (userByEmail != null) {
+                return ResponseResult.FAILED("该邮箱已注册。");
+            }
+        } else if ("forget".equals(type)) {
+            User userByEmail = userMapper.selectByEmail(emailAddress);
+            if (userByEmail != null) {
+                return ResponseResult.FAILED("该邮箱未注册。");
+            }
+        }
         /*
         1.防止暴力发送邮箱:
             1)同一邮箱间隔30s发送一次;
-            2)同一Ip地址,最多只能发10次(如果是短信,最多只能发5次)
+            2)同一Ip地址,1h最多只能发10次(如果是短信,最多只能发5次)
         */
         String emailIp = request.getRemoteAddr();
         emailIp = emailIp.replaceAll(":", "-");
@@ -175,7 +202,162 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         }
         redisUtil.set(Constants.User.KEY_EMAIL_SEND_IP + emailIp, ipSendTime + 1, 1 * 60 * 60);
         redisUtil.set(Constants.User.KEY_EMAIL_SEND_ADDRESS + emailAddress, "email_send_true", 30);
-        redisUtil.set(Constants.User.KEY_EMAIL_VERIFY_CODE_CONTENT + emailAddress, verifyCode, 10 * 60);
+        redisUtil.set(Constants.User.KEY_EMAIL_CODE_CONTENT + emailAddress, String.valueOf(verifyCode), 10 * 60);
         return ResponseResult.SUCCESS("验证码发送成功。");
+    }
+
+    @Override
+    public ResponseResult register(User user, String emailCode, String captchaKey, String captchaCode, HttpServletRequest req) {
+        //1.检查用户名是否已经注册
+        String userName = user.getUserName();
+        if (TextUtil.isEmpty(userName)) {
+            return ResponseResult.FAILED("用户名不可为空。");
+        }
+        User userFromDbByUserName = userMapper.selectByUserName(userName);
+        if (userFromDbByUserName != null) {
+            return ResponseResult.FAILED("该用户名已注册。");
+        }
+        //2.检查邮箱格式是否正确、是否注册、邮箱验证码是否正确
+        String email = user.getEmail();
+        if (!TextUtil.isEmailAddressOk(email)) {
+            return ResponseResult.FAILED("邮箱格式不正确。");
+        }
+        User userFromDbByEmail = userMapper.selectByEmail(email);
+        if (userFromDbByEmail != null) {
+            return ResponseResult.FAILED("该邮箱已经注册。");
+        }
+        String emailVerifyCode = (String) redisUtil.get(Constants.User.KEY_EMAIL_CODE_CONTENT + email);
+        if (TextUtil.isEmpty(emailVerifyCode)) {
+            return ResponseResult.FAILED("邮箱验证码无效。");
+        }
+        if (!emailVerifyCode.equals(emailCode.toLowerCase())) {
+            return ResponseResult.FAILED("邮箱验证码不正确。");
+        } else {
+            redisUtil.del(Constants.User.KEY_EMAIL_CODE_CONTENT + email);
+        }
+        //3.检查图灵验证码是否正确
+        String captchaVerifyCode = (String) redisUtil.get(Constants.User.KEY_CAPTCHA_CONTENT + captchaKey);
+        if (TextUtil.isEmpty(captchaVerifyCode)) {
+            return ResponseResult.FAILED("人类验证码已过期。");
+        }
+        if (!captchaVerifyCode.equals(captchaCode)) {
+            return ResponseResult.FAILED("人类验证码错误。");
+        } else {
+            redisUtil.del(Constants.User.KEY_CAPTCHA_CONTENT + captchaKey);
+        }
+        //(达到可以注册条件)4.补全数据(密码加密、注册IP、登录IP、角色...)
+        String password = user.getPassword();
+        if (TextUtil.isEmpty(password)) {
+            return ResponseResult.FAILED("密码不可以为空。");
+        }
+        user.setPassword(encoder.encode(password));
+        user.setRole(Constants.User.ROLE_ADMIN);
+        user.setAvatar(Constants.User.DEFAULT_AVATAR);
+        user.setState(Constants.User.DEFAULT_STATE);
+        user.setRegIp(req.getRemoteAddr());
+        user.setLogIp(req.getRemoteAddr());
+        user.setCreateTime(new Date());
+        user.setUpdateTime(new Date());
+        //5.保存到数据库
+        userMapper.insert(user);
+        //6.返回结果
+        return ResponseResult.GET(ResponseState.JOIN_IN_SUCCESS);
+    }
+
+    @Override
+    public ResponseResult doLogin(String captchaKey, String captcha, User user, HttpServletRequest req, HttpServletResponse resp) {
+        //1.检查图灵验证码是否正确
+        String captchaValue = (String) redisUtil.get(Constants.User.KEY_CAPTCHA_CONTENT + captchaKey);
+        if (!captchaValue.equals(captcha.toLowerCase())) {
+            return ResponseResult.FAILED("人类验证码不正确。");
+        }
+        //2.根据用户名或密码查找用户
+        String userName = user.getUserName();
+        if (TextUtil.isEmpty(userName)) {
+            return ResponseResult.FAILED("账号不可以为空");
+        }
+        String password = user.getPassword();
+        if (TextUtil.isEmpty(password)) {
+            return ResponseResult.FAILED("密码不可以为空");
+        }
+        User userFromDbByNameOrEmail = userMapper.selectByUserName(userName);
+        if (userFromDbByNameOrEmail == null) {
+            userFromDbByNameOrEmail = userMapper.selectByEmail(user.getEmail());
+            log.info("userFromDbByNameOrEmail{}", userFromDbByNameOrEmail);
+        }
+        if (userFromDbByNameOrEmail == null) {
+            return ResponseResult.FAILED("用户名或邮箱不正确。");
+        }
+        //3.验证密码
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        String encodePassword = bCryptPasswordEncoder.encode(password);
+        if (!bCryptPasswordEncoder.matches(user.getPassword(), encodePassword)) {
+            return ResponseResult.FAILED("密码不正确。");
+        }
+
+        if (!("1".equals(userFromDbByNameOrEmail.getState()))) {
+            return ResponseResult.FAILED("当前账号已被冻结。");
+        }
+        //4.生成Token
+        createToken(resp, userFromDbByNameOrEmail);
+        return ResponseResult.SUCCESS("登录成功");
+    }
+
+    @Override
+    public User checkUser(HttpServletRequest req, HttpServletResponse resp) {
+        String tokenKey = CookieUtils.getCookieValue(req, Constants.User.KEY_COOKIE_TOKEN);
+        log.info("tokenKey:{}", tokenKey);
+        if (tokenKey == null) {
+            return null;
+        }
+        User userFromToken = parseByTokenKey(tokenKey);
+        if (userFromToken == null) {
+            RefreshToken refreshTokenFromDbByTokenKey = refreshTokenMapper.selectByTokenKey(tokenKey);
+            if (refreshTokenFromDbByTokenKey == null) {
+                return null;
+            }
+            try {
+                String userId = refreshTokenFromDbByTokenKey.getUserId();
+                User userFromDbById = userMapper.selectById(userId);
+                String newTokenKey = createToken(resp, userFromDbById);
+                return parseByTokenKey(newTokenKey);
+            } catch (Exception e) {
+                return null;
+            }
+        }
+        return userFromToken;
+    }
+
+    private String createToken(HttpServletResponse resp, User userFromDbByNameOrEmail) {
+        refreshTokenMapper.deleteByUserId(userFromDbByNameOrEmail.getId());
+        Map<String, Object> claims = ClaimsUtils.user2Claims(userFromDbByNameOrEmail);
+        String token = JwtUtil.createToken(claims);
+        //4.1 返回tokenKey,即token的md5值,返回给前端并将(tokenKey, token)存储到redis中
+        String tokenKey = DigestUtils.md5DigestAsHex(token.getBytes());
+        redisUtil.set(Constants.User.KEY_TOKEN_CONTENT + tokenKey, token, Constants.TimeValueInSecond.HOUR_2);
+        CookieUtils.setUpCookie(resp, Constants.User.KEY_COOKIE_TOKEN, tokenKey, Constants.TimeValueInSecond.HOUR_2);
+        String refreshTokenValue = JwtUtil.createRefreshToken(userFromDbByNameOrEmail.getId(), Constants.TimeValueInSecond.MONTH);
+        RefreshToken refreshToken = new RefreshToken();
+        refreshToken.setId(String.valueOf(idWorker.nextId()));
+        refreshToken.setRefreshToken(refreshTokenValue);
+        refreshToken.setUserId(userFromDbByNameOrEmail.getId());
+        refreshToken.setTokenKey(tokenKey);
+        refreshToken.setCreateTime(new Date());
+        refreshToken.setUpdateTime(new Date());
+        refreshTokenMapper.insert(refreshToken);
+        return tokenKey;
+    }
+
+    private User parseByTokenKey(String tokenKey) {
+        String token = (String) redisUtil.get(Constants.User.KEY_TOKEN_CONTENT + tokenKey);
+        if (token != null) {
+            try {
+                Claims claims = JwtUtil.parseToken(token);
+                return ClaimsUtils.claims2User(claims);
+            } catch (Exception e) {
+                return null;
+            }
+        }
+        return null;
     }
 }

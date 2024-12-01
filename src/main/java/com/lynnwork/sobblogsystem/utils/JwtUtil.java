@@ -10,9 +10,9 @@ import java.util.Map;
 
 public class JwtUtil {
     // 盐值
-    private static final String key = "密钥";
+    private static final String key = "67378bf38348f4aa958c1144252e7b2b";
 
-    private static long ttl = 2 * 60 * 60;
+    private static long ttl = 2 * 60 * 60 * 1000;
 
     public static long getTtl() {
         return ttl;

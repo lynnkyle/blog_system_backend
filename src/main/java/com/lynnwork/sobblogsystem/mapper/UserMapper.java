@@ -13,7 +13,7 @@ import org.apache.ibatis.annotations.Param;
  * @since 2024-10-28
  */
 public interface UserMapper extends BaseMapper<User> {
-    User findOneByUserName(@Param("user_name") String userName);
+    User selectByUserName(@Param("user_name") String userName);
 
-    User findOneByEmail(String email);
+    User selectByEmail(@Param("email") String email);
 }

@@ -6,7 +6,6 @@ import com.lynnwork.sobblogsystem.response.ResponseResult;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.ws.Response;
 
 /**
  * <p>
@@ -21,5 +20,12 @@ public interface IUserService extends IService<User> {
 
     void createCapture(HttpServletResponse response, String captchaKey) throws Exception;
 
-    ResponseResult sendEmail(HttpServletRequest request, String emailAddress) throws Exception;
+    ResponseResult sendEmailCode(HttpServletRequest request, String emailAddress, String type) throws Exception;
+
+    ResponseResult register(User user, String emailCode, String captchaKey, String captchaCode, HttpServletRequest request);
+
+    ResponseResult doLogin(String captchaKey, String captcha, User user, HttpServletRequest req, HttpServletResponse resp);
+
+    User checkUser(HttpServletRequest req, HttpServletResponse resp);
+
 }

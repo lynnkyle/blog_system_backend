@@ -3,6 +3,7 @@ package com.lynnwork.sobblogsystem;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
+
 public class GeneratorCodes {
 
     public static void main(String[] args) {
@@ -11,7 +12,7 @@ public class GeneratorCodes {
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
-        gc.setOutputDir("C:/Users/kyle/Desktop/SobBlogSystem/src/main/java");   //输出路径
+        gc.setOutputDir("C:/Users/kyle/Desktop/阳光沙滩工具/SobBlogSystemBackend/src/main/java");   //输出路径
         gc.setAuthor("lynnkyle");   //作者
         gc.setOpen(false);  //生成以后是否打开文件夹
         //gc.setSwagger2(true); //实体属性 Swagger2 注解
@@ -45,7 +46,7 @@ public class GeneratorCodes {
         // 分割多张表
         strategy.setTablePrefix("tb_");
         // [important!!!] 填写表名
-        strategy.setInclude("tb_demo", "tb_user", "tb_images", "tb_article", "tb_comment", "tb_category");
+        strategy.setInclude("tb_refresh_token");
         strategy.setControllerMappingHyphenStyle(true);
         // strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);
