@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lynnwork.sobblogsystem.mapper.RefreshTokenMapper">
+    <select id="selectByTokenKey" resultType="com.lynnwork.sobblogsystem.pojo.RefreshToken">
+        select id, refresh_token, user_id, token_key, create_time, update_time
+        from tb_refresh_token
+        where token_key = #{token_key}
+    </select>
+    <delete id="deleteByUserId">
+        delete
+        from tb_refresh_token
+        where user_id = #{user_id}
+    </delete>
+</mapper>

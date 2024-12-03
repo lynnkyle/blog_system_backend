@@ -28,4 +28,7 @@ public interface IUserService extends IService<User> {
 
     User checkUser(HttpServletRequest req, HttpServletResponse resp);
 
+    ResponseResult getUserInfo(String userId);
+
+    ResponseResult checkEmail(String email);
 }

@@ -6,13 +6,14 @@ import com.lynnwork.sobblogsystem.pojo.User;
 import com.lynnwork.sobblogsystem.response.ResponseResult;
 import com.lynnwork.sobblogsystem.service.IUserService;
 import com.lynnwork.sobblogsystem.utils.*;
-import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.util.Date;
 
 @Slf4j
@@ -33,7 +34,7 @@ public class TestController {
         if (user == null) {
             return ResponseResult.FAILED("用户未登录。");
         }
-        article.setId("1");
+        article.setId(article.getId());
         article.setUserId(user.getId());
         article.setUserAvatar(user.getAvatar());
         article.setUserName(user.getUserName());
@@ -49,5 +50,17 @@ public class TestController {
         article.setUpdateTime(new Date());
         articleMapper.insert(article);
         return ResponseResult.SUCCESS("成功创建文章");
+    }
+
+    @PostMapping("/upload")
+    public ResponseResult fileController(@RequestPart("file") MultipartFile file) {
+        String fileName = file.getOriginalFilename();
+        System.out.println(fileName);
+        try {
+            file.transferTo(new File("C:\\Download\\" + fileName));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ResponseResult.SUCCESS("文件上传成功");
     }
 }

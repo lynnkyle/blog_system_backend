@@ -1,5 +1,6 @@
 package com.lynnwork.sobblogsystem;
 
+import com.google.gson.Gson;
 import com.lynnwork.sobblogsystem.utils.JwtUtil;
 import com.lynnwork.sobblogsystem.utils.RedisUtil;
 import com.lynnwork.sobblogsystem.utils.SnowflakeIdWorker;
@@ -37,5 +38,10 @@ public class SobBlogSystemApplication {
     @Bean
     public Random random() {
         return new Random();
+    }
+
+    @Bean
+    public Gson gson() {
+        return new Gson();
     }
 }

@@ -1,5 +1,6 @@
 package com.lynnwork.sobblogsystem.service.impl;
 
+import com.google.gson.Gson;
 import com.lynnwork.sobblogsystem.mapper.RefreshTokenMapper;
 import com.lynnwork.sobblogsystem.mapper.SettingMapper;
 import com.lynnwork.sobblogsystem.pojo.RefreshToken;
@@ -23,7 +24,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
@@ -54,6 +54,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     private BCryptPasswordEncoder encoder;
     @Autowired
     private Random random;
+    @Autowired
+    private Gson gson;
     @Autowired
     private RedisUtil redisUtil;
     @Autowired
@@ -207,6 +209,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     }
 
     @Override
+    public ResponseResult checkEmail(String email) {
+        return null;
+    }
+
+    /*
+           用户注册
+        */
+    @Override
     public ResponseResult register(User user, String emailCode, String captchaKey, String captchaCode, HttpServletRequest req) {
         //1.检查用户名是否已经注册
         String userName = user.getUserName();
@@ -264,6 +274,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         return ResponseResult.GET(ResponseState.JOIN_IN_SUCCESS);
     }
 
+    /*
+        用户登录
+    */
     @Override
     public ResponseResult doLogin(String captchaKey, String captcha, User user, HttpServletRequest req, HttpServletResponse resp) {
         //1.检查图灵验证码是否正确
@@ -283,7 +296,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         User userFromDbByNameOrEmail = userMapper.selectByUserName(userName);
         if (userFromDbByNameOrEmail == null) {
             userFromDbByNameOrEmail = userMapper.selectByEmail(user.getEmail());
-            log.info("userFromDbByNameOrEmail{}", userFromDbByNameOrEmail);
         }
         if (userFromDbByNameOrEmail == null) {
             return ResponseResult.FAILED("用户名或邮箱不正确。");
@@ -304,30 +316,68 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     }
 
     @Override
+    public ResponseResult getUserInfo(String userId) {
+        // 1.数据库中查找用户
+        User userFromDbById = userMapper.selectById(userId);
+        if (userFromDbById == null) {
+            return ResponseResult.FAILED("用户不存在。");
+        }
+        // 2.复制对象，清空敏感性数据
+        String userToJson = gson.toJson(userFromDbById);
+        User jsonToUser = gson.fromJson(userToJson, User.class);
+        jsonToUser.setPassword(null);
+        jsonToUser.setEmail(null);
+        jsonToUser.setRegIp(null);
+        jsonToUser.setLogIp(null);
+        return ResponseResult.SUCCESS("成功获取用户信息").setData(jsonToUser);
+    }
+
+    /*
+           用户检查 Double Token的方案
+           系统的增删改功能均需要涉及用户检查
+        */
+    @Override
     public User checkUser(HttpServletRequest req, HttpServletResponse resp) {
+        /*
+            Double Token方案:
+            1.token:有效期2小时，存放在redis中
+            2.refreshToken:有效期30天，存放在mysql中
+        */
+        //1.从Cookie中拿到tokenKey
         String tokenKey = CookieUtils.getCookieValue(req, Constants.User.KEY_COOKIE_TOKEN);
-        log.info("tokenKey:{}", tokenKey);
-        if (tokenKey == null) {
+        if (TextUtil.isEmpty(tokenKey)) { //tokenKey无内容 当前访问未登录
             return null;
         }
+        //2.解析tokenKey
         User userFromToken = parseByTokenKey(tokenKey);
+        //2.1 redis中的token过期了(查询refreshToken)
         if (userFromToken == null) {
+            //2.1.1 mysql中查询refreshToken
             RefreshToken refreshTokenFromDbByTokenKey = refreshTokenMapper.selectByTokenKey(tokenKey);
-            if (refreshTokenFromDbByTokenKey == null) {
+            if (refreshTokenFromDbByTokenKey == null) { // refreshTokenFromDbByTokenKey==null，当前访问未登录
                 return null;
             }
+            log.info("refreshTokenFromDbByTokenKey:{}", refreshTokenFromDbByTokenKey);
+            //2.1.2 mysql中的refreshToken是否过期
             try {
+                JwtUtil.parseToken(refreshTokenFromDbByTokenKey.getRefreshToken());
+                // refreshToken未过期，重新生成token和refreshToken
                 String userId = refreshTokenFromDbByTokenKey.getUserId();
                 User userFromDbById = userMapper.selectById(userId);
                 String newTokenKey = createToken(resp, userFromDbById);
                 return parseByTokenKey(newTokenKey);
             } catch (Exception e) {
+                // refreshToken过期，用户需要重新登录
                 return null;
             }
         }
+        //2.2 redis中的token未过期
         return userFromToken;
     }
 
+    /*
+       创建token和refreshToken
+    */
     private String createToken(HttpServletResponse resp, User userFromDbByNameOrEmail) {
         refreshTokenMapper.deleteByUserId(userFromDbByNameOrEmail.getId());
         Map<String, Object> claims = ClaimsUtils.user2Claims(userFromDbByNameOrEmail);
@@ -348,6 +398,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         return tokenKey;
     }
 
+    /*
+       解析tokenKey
+    */
     private User parseByTokenKey(String tokenKey) {
         String token = (String) redisUtil.get(Constants.User.KEY_TOKEN_CONTENT + tokenKey);
         if (token != null) {

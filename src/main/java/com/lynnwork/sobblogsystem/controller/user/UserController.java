@@ -28,8 +28,6 @@ public class UserController {
 
     @Autowired
     private IUserService userService;
-    @Autowired
-    private UserMapper userMapper;
 
     /*
        获取图灵验证码 /user/captcha
@@ -107,6 +105,34 @@ public class UserController {
     @PostMapping("/{captcha_key}/{captcha}")
     public ResponseResult doLogin(@PathVariable("captcha_key") String captchaKey, @PathVariable("captcha") String captcha, @RequestBody User user, HttpServletRequest req, HttpServletResponse resp) {
         return userService.doLogin(captchaKey, captcha, user, req, resp);
+    }
+
+    /*
+        获取用户信息
+    */
+    @GetMapping("/{userId}")
+    public ResponseResult getUserInfo(@PathVariable("userId") String userId) {
+        return userService.getUserInfo(userId);
+    }
+
+    /*
+        更新用户信息
+
+        允许用户修改的信息   (修改密码、修改邮箱均需要验证)
+        1.用户名   (唯一性)
+        2.密码    (唯一性) (单独修改)
+        3.头像
+        4.邮箱    (单独修改)
+        5.签名
+    */
+    @PutMapping("/{userId}")
+    public ResponseResult updateUserInfo(@RequestBody User user, HttpServletRequest request) {
+        return null;
+    }
+
+    @GetMapping("/email")
+    public ResponseResult checkEmail(@RequestParam("email") String email) {
+        return userService.checkEmail(email);
     }
 }
 
