@@ -16,19 +16,24 @@ import javax.servlet.http.HttpServletResponse;
  * @since 2024-10-28
  */
 public interface IUserService extends IService<User> {
-    ResponseResult initManagerAccount(User user, HttpServletRequest request);
 
     void createCapture(HttpServletResponse response, String captchaKey) throws Exception;
 
-    ResponseResult sendEmailCode(HttpServletRequest request, String emailAddress, String type) throws Exception;
-
-    ResponseResult register(User user, String emailCode, String captchaKey, String captchaCode, HttpServletRequest request);
-
-    ResponseResult doLogin(String captchaKey, String captcha, User user, HttpServletRequest req, HttpServletResponse resp);
+    ResponseResult sendEmailCode(HttpServletRequest req, String emailAddress, String type) throws Exception;
 
     User checkUser(HttpServletRequest req, HttpServletResponse resp);
 
+    ResponseResult checkEmail(String email);
+
+    ResponseResult checkUserName(String userName);
+
+    ResponseResult initManagerAccount(User user, HttpServletRequest req);
+
+    ResponseResult register(User user, String emailCode, String captchaKey, String captchaCode, HttpServletRequest req);
+
+    ResponseResult doLogin(String captchaKey, String captcha, User user, HttpServletRequest req, HttpServletResponse resp);
+
     ResponseResult getUserInfo(String userId);
 
-    ResponseResult checkEmail(String email);
+    ResponseResult updateUserInfo(String userId, User user, HttpServletRequest req, HttpServletResponse resp);
 }

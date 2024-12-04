@@ -5,6 +5,8 @@ import com.lynnwork.sobblogsystem.mapper.UserMapper;
 import com.lynnwork.sobblogsystem.pojo.User;
 import com.lynnwork.sobblogsystem.response.ResponseResult;
 import com.lynnwork.sobblogsystem.service.IUserService;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -52,15 +54,39 @@ public class UserController {
         @Return
      */
     @GetMapping("/email_code")
-    public ResponseResult sendEmailCode(HttpServletRequest request, @RequestParam("email") String emailAddress,
+    public ResponseResult sendEmailCode(HttpServletRequest req, @RequestParam("email") String emailAddress,
                                         @RequestParam("type") String type) {
         ResponseResult responseResult = null;
         try {
-            responseResult = userService.sendEmailCode(request, emailAddress, type);
+            responseResult = userService.sendEmailCode(req, emailAddress, type);
         } catch (Exception e) {
             log.error(e.getMessage());
         }
         return responseResult;
+    }
+
+    /*
+        检查邮箱是否已经注册
+     */
+    @ApiResponses({
+            @ApiResponse(code = 20000, message = "当前邮箱已经注册"),
+            @ApiResponse(code = 40000, message = "当前邮箱未注册")
+    })
+    @GetMapping("/email")
+    public ResponseResult checkEmail(@RequestParam("email") String email) {
+        return userService.checkEmail(email);
+    }
+
+    /*
+        检查用户名是否已经注册
+     */
+    @ApiResponses({
+            @ApiResponse(code = 20000, message = "当前用户已经注册"),
+            @ApiResponse(code = 40000, message = "当前用户未注册")
+    })
+    @GetMapping("/user_name")
+    public ResponseResult checkUserName(@RequestParam("userName") String userName) {
+        return userService.checkUserName(userName);
     }
 
     /*
@@ -70,8 +96,8 @@ public class UserController {
         @Return
      */
     @PostMapping("/admin_account")
-    public ResponseResult initManagerAccount(@RequestBody User user, HttpServletRequest request) {
-        return userService.initManagerAccount(user, request);
+    public ResponseResult initManagerAccount(@RequestBody User user, HttpServletRequest req) {
+        return userService.initManagerAccount(user, req);
     }
 
     /*
@@ -88,17 +114,17 @@ public class UserController {
                                    @RequestParam("email_code") String emailCode,
                                    @RequestParam("captcha_key") String captchaKey,
                                    @RequestParam("captcha_code") String captchaCode,
-                                   HttpServletRequest request) {
-        return userService.register(user, emailCode, captchaKey, captchaCode, request);
+                                   HttpServletRequest req) {
+        return userService.register(user, emailCode, captchaKey, captchaCode, req);
     }
 
     /*
         登录login /user/
         @Param
-        1.用户账号-可以昵称,可以邮箱-->做了唯一性处理
-        2.密码
-        3.图灵验证码的key
-        4.图灵验证码
+        1.图灵验证码的key
+        2.图灵验证码
+        3.用户账号-可以昵称,可以邮箱-->做了唯一性处理
+        4.密码
         HttpServletResponse设置Cookie,将Token放入Cookie,并返回给浏览器
         @Return
      */
@@ -109,7 +135,7 @@ public class UserController {
 
     /*
         获取用户信息
-    */
+     */
     @GetMapping("/{userId}")
     public ResponseResult getUserInfo(@PathVariable("userId") String userId) {
         return userService.getUserInfo(userId);
@@ -117,22 +143,10 @@ public class UserController {
 
     /*
         更新用户信息
-
-        允许用户修改的信息   (修改密码、修改邮箱均需要验证)
-        1.用户名   (唯一性)
-        2.密码    (唯一性) (单独修改)
-        3.头像
-        4.邮箱    (单独修改)
-        5.签名
-    */
+     */
     @PutMapping("/{userId}")
-    public ResponseResult updateUserInfo(@RequestBody User user, HttpServletRequest request) {
-        return null;
-    }
-
-    @GetMapping("/email")
-    public ResponseResult checkEmail(@RequestParam("email") String email) {
-        return userService.checkEmail(email);
+    public ResponseResult updateUserInfo(@RequestParam("userId") String userId, @RequestBody User user, HttpServletRequest req, HttpServletResponse resp) {
+        return userService.updateUserInfo(userId, user, req, resp);
     }
 }
 

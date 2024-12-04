@@ -17,6 +17,8 @@ import com.wf.captcha.GifCaptcha;
 import com.wf.captcha.SpecCaptcha;
 import com.wf.captcha.base.Captcha;
 import io.jsonwebtoken.Claims;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -66,53 +68,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     private RefreshTokenMapper refreshTokenMapper;
 
     /*
-        初始化管理员账户
-    */
-    @Override
-    public ResponseResult initManagerAccount(User user, HttpServletRequest request) {
-        //1.检查是否有初始化(setting)
-        Setting settingFromDbByKey = settingMapper.selectByKey(Constants.Setting.ADMIN_ACCOUNT_INIT_STATE);
-        if (settingFromDbByKey != null) {
-            return ResponseResult.FAILED("管理员账号已经初始化成功。");
-        }
-        //2.检查数据(username、password、email)
-        if (TextUtil.isEmpty(user.getUserName())) {
-            return ResponseResult.FAILED("用户名不能为空。");
-        }
-        if (TextUtil.isEmpty(user.getPassword())) {
-            return ResponseResult.FAILED("密码不能为空。");
-        }
-        if (TextUtil.isEmpty(user.getEmail())) {
-            return ResponseResult.FAILED("邮箱不能为空。");
-        }
-        //3.补充用户数据
-        user.setId(String.valueOf(idWorker.nextId()));
-        user.setUserName(user.getUserName());
-        user.setPassword(encoder.encode(user.getPassword()));
-        user.setRole(Constants.User.ROLE_ADMIN);
-        user.setAvatar(Constants.User.DEFAULT_AVATAR);
-        user.setEmail(user.getEmail());
-        user.setState(Constants.User.DEFAULT_STATE);
-        user.setRegIp(request.getRemoteAddr());
-        user.setLogIp(request.getRemoteAddr());
-        user.setCreateTime(new Date());
-        user.setUpdateTime(new Date());
-        //4.保存到数据库中
-        userMapper.insert(user);
-        //5.更新已经添加的标记(setting)
-        Setting setting = new Setting();
-        setting.setId(String.valueOf(idWorker.nextId()));
-        setting.setKey(Constants.Setting.ADMIN_ACCOUNT_INIT_STATE);
-        setting.setValue("1");
-        setting.setCreateTime(new Date());
-        setting.setUpdateTime(new Date());
-        settingMapper.insert(setting);
-        return ResponseResult.SUCCESS("管理员初始化成功。");
-    }
-
-    /*
         生成图灵验证码
-    */
+     */
     public void createCapture(HttpServletResponse response, String captchaKey) throws Exception {
         if (TextUtil.isEmpty(captchaKey) || captchaKey.length() < 13) {
             return;
@@ -146,18 +103,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         captcha.out(response.getOutputStream());
     }
 
-    @Autowired
-    private TaskService taskService;
-
     /*
         发送邮箱验证码
         使用场景: 注册、找回密码、修改邮箱(输入新的邮箱)
         注册(register):如果已经注册,提示该邮箱已经注册
         找回密码(forget):如果没有注册过,提示该邮箱没有注册
         修改邮箱(update):如果新的邮箱地址已经注册,提示该邮箱已注册;
-    */
+     */
     @Override
-    public ResponseResult sendEmailCode(HttpServletRequest request, String emailAddress, String type) throws Exception {
+    public ResponseResult sendEmailCode(HttpServletRequest req, String emailAddress, String type) throws Exception {
         if (emailAddress == null) {
             ResponseResult.FAILED("邮箱地址不可以为空。");
         }
@@ -177,7 +131,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             1)同一邮箱间隔30s发送一次;
             2)同一Ip地址,1h最多只能发10次(如果是短信,最多只能发5次)
         */
-        String emailIp = request.getRemoteAddr();
+        String emailIp = req.getRemoteAddr();
         emailIp = emailIp.replaceAll(":", "-");
         Integer ipSendTime = (Integer) redisUtil.get(Constants.User.KEY_EMAIL_SEND_IP + emailIp);
         if (ipSendTime != null && ipSendTime > 10) {
@@ -208,14 +162,119 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         return ResponseResult.SUCCESS("验证码发送成功。");
     }
 
+    /*
+        用户检查 Double Token的方案
+        系统的增删改功能均需要涉及用户检查
+     */
     @Override
-    public ResponseResult checkEmail(String email) {
-        return null;
+    public User checkUser(HttpServletRequest req, HttpServletResponse resp) {
+        /*
+            Double Token方案:
+            1.token:有效期2小时，存放在redis中
+            2.refreshToken:有效期30天，存放在mysql中
+        */
+        //1.从Cookie中拿到tokenKey
+        String tokenKey = CookieUtils.getCookieValue(req, Constants.User.KEY_COOKIE_TOKEN);
+        if (TextUtil.isEmpty(tokenKey)) { //tokenKey无内容 当前访问未登录
+            return null;
+        }
+        //2.解析tokenKey
+        User userFromToken = parseByTokenKey(tokenKey);
+        //2.1 redis中的token过期了(查询refreshToken)
+        if (userFromToken == null) {
+            //2.1.1 mysql中查询refreshToken
+            RefreshToken refreshTokenFromDbByTokenKey = refreshTokenMapper.selectByTokenKey(tokenKey);
+            if (refreshTokenFromDbByTokenKey == null) { // refreshTokenFromDbByTokenKey==null，当前访问未登录
+                return null;
+            }
+            log.info("refreshTokenFromDbByTokenKey:{}", refreshTokenFromDbByTokenKey);
+            //2.1.2 mysql中的refreshToken是否过期
+            try {
+                JwtUtil.parseToken(refreshTokenFromDbByTokenKey.getRefreshToken());
+                // refreshToken未过期，重新生成token和refreshToken
+                String userId = refreshTokenFromDbByTokenKey.getUserId();
+                User userFromDbById = userMapper.selectById(userId);
+                String newTokenKey = createToken(userFromDbById, resp);
+                return parseByTokenKey(newTokenKey);
+            } catch (Exception e) {
+                // refreshToken过期，用户需要重新登录
+                return null;
+            }
+        }
+        //2.2 redis中的token未过期
+        return userFromToken;
     }
 
     /*
-           用户注册
-        */
+        检查邮箱
+     */
+    @Override
+    public ResponseResult checkEmail(String email) {
+        User userFromDbByEmail = userMapper.selectByEmail(email);
+        return userFromDbByEmail == null ? ResponseResult.FAILED("该邮箱未注册。") : ResponseResult.SUCCESS("该邮箱已注册。");
+    }
+
+    /*
+        检查用户名
+     */
+    @Override
+    public ResponseResult checkUserName(String userName) {
+        User userFromDbByUserName = userMapper.selectByUserName(userName);
+        return userFromDbByUserName == null ? ResponseResult.FAILED("该用户名未注册。") : ResponseResult.SUCCESS("该用户名已注册。");
+    }
+
+    /*
+        初始化管理员账户
+     */
+    @Override
+    public ResponseResult initManagerAccount(User user, HttpServletRequest req) {
+        //1.检查是否有初始化(setting)
+        Setting settingFromDbByKey = settingMapper.selectByKey(Constants.Setting.ADMIN_ACCOUNT_INIT_STATE);
+        if (settingFromDbByKey != null) {
+            return ResponseResult.FAILED("管理员账号已经初始化成功。");
+        }
+        //2.检查数据(username、password、email)
+        if (TextUtil.isEmpty(user.getUserName())) {
+            return ResponseResult.FAILED("用户名不能为空。");
+        }
+        if (TextUtil.isEmpty(user.getPassword())) {
+            return ResponseResult.FAILED("密码不能为空。");
+        }
+        if (TextUtil.isEmpty(user.getEmail())) {
+            return ResponseResult.FAILED("邮箱不能为空。");
+        }
+        //3.补充用户数据
+        user.setId(String.valueOf(idWorker.nextId()));
+        user.setUserName(user.getUserName());
+        user.setPassword(encoder.encode(user.getPassword()));
+        user.setRole(Constants.User.ROLE_ADMIN);
+        user.setAvatar(Constants.User.DEFAULT_AVATAR);
+        user.setEmail(user.getEmail());
+        user.setState(Constants.User.DEFAULT_STATE);
+        user.setRegIp(req.getRemoteAddr());
+        user.setLogIp(req.getRemoteAddr());
+        user.setCreateTime(new Date());
+        user.setUpdateTime(new Date());
+        //4.保存到数据库中
+        userMapper.insert(user);
+        //5.更新已经添加的标记(setting)
+        Setting setting = new Setting();
+        setting.setId(String.valueOf(idWorker.nextId()));
+        setting.setKey(Constants.Setting.ADMIN_ACCOUNT_INIT_STATE);
+        setting.setValue("1");
+        setting.setCreateTime(new Date());
+        setting.setUpdateTime(new Date());
+        settingMapper.insert(setting);
+        return ResponseResult.SUCCESS("管理员初始化成功。");
+    }
+
+    @Autowired
+    private TaskService taskService;
+
+
+    /*
+        用户注册
+     */
     @Override
     public ResponseResult register(User user, String emailCode, String captchaKey, String captchaCode, HttpServletRequest req) {
         //1.检查用户名是否已经注册
@@ -276,7 +335,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     /*
         用户登录
-    */
+     */
     @Override
     public ResponseResult doLogin(String captchaKey, String captcha, User user, HttpServletRequest req, HttpServletResponse resp) {
         //1.检查图灵验证码是否正确
@@ -311,74 +370,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             return ResponseResult.FAILED("当前账号已被冻结。");
         }
         //4.生成Token
-        createToken(resp, userFromDbByNameOrEmail);
+        createToken(userFromDbByNameOrEmail, resp);
         return ResponseResult.SUCCESS("登录成功");
     }
 
-    @Override
-    public ResponseResult getUserInfo(String userId) {
-        // 1.数据库中查找用户
-        User userFromDbById = userMapper.selectById(userId);
-        if (userFromDbById == null) {
-            return ResponseResult.FAILED("用户不存在。");
-        }
-        // 2.复制对象，清空敏感性数据
-        String userToJson = gson.toJson(userFromDbById);
-        User jsonToUser = gson.fromJson(userToJson, User.class);
-        jsonToUser.setPassword(null);
-        jsonToUser.setEmail(null);
-        jsonToUser.setRegIp(null);
-        jsonToUser.setLogIp(null);
-        return ResponseResult.SUCCESS("成功获取用户信息").setData(jsonToUser);
-    }
-
     /*
-           用户检查 Double Token的方案
-           系统的增删改功能均需要涉及用户检查
-        */
-    @Override
-    public User checkUser(HttpServletRequest req, HttpServletResponse resp) {
-        /*
-            Double Token方案:
-            1.token:有效期2小时，存放在redis中
-            2.refreshToken:有效期30天，存放在mysql中
-        */
-        //1.从Cookie中拿到tokenKey
-        String tokenKey = CookieUtils.getCookieValue(req, Constants.User.KEY_COOKIE_TOKEN);
-        if (TextUtil.isEmpty(tokenKey)) { //tokenKey无内容 当前访问未登录
-            return null;
-        }
-        //2.解析tokenKey
-        User userFromToken = parseByTokenKey(tokenKey);
-        //2.1 redis中的token过期了(查询refreshToken)
-        if (userFromToken == null) {
-            //2.1.1 mysql中查询refreshToken
-            RefreshToken refreshTokenFromDbByTokenKey = refreshTokenMapper.selectByTokenKey(tokenKey);
-            if (refreshTokenFromDbByTokenKey == null) { // refreshTokenFromDbByTokenKey==null，当前访问未登录
-                return null;
-            }
-            log.info("refreshTokenFromDbByTokenKey:{}", refreshTokenFromDbByTokenKey);
-            //2.1.2 mysql中的refreshToken是否过期
-            try {
-                JwtUtil.parseToken(refreshTokenFromDbByTokenKey.getRefreshToken());
-                // refreshToken未过期，重新生成token和refreshToken
-                String userId = refreshTokenFromDbByTokenKey.getUserId();
-                User userFromDbById = userMapper.selectById(userId);
-                String newTokenKey = createToken(resp, userFromDbById);
-                return parseByTokenKey(newTokenKey);
-            } catch (Exception e) {
-                // refreshToken过期，用户需要重新登录
-                return null;
-            }
-        }
-        //2.2 redis中的token未过期
-        return userFromToken;
-    }
-
-    /*
-       创建token和refreshToken
-    */
-    private String createToken(HttpServletResponse resp, User userFromDbByNameOrEmail) {
+       创建token和refreshToken(用户登录附属流程)
+     */
+    private String createToken(User userFromDbByNameOrEmail, HttpServletResponse resp) {
         refreshTokenMapper.deleteByUserId(userFromDbByNameOrEmail.getId());
         Map<String, Object> claims = ClaimsUtils.user2Claims(userFromDbByNameOrEmail);
         String token = JwtUtil.createToken(claims);
@@ -399,8 +398,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     }
 
     /*
-       解析tokenKey
-    */
+       解析tokenKey(用户登录附属流程)
+     */
     private User parseByTokenKey(String tokenKey) {
         String token = (String) redisUtil.get(Constants.User.KEY_TOKEN_CONTENT + tokenKey);
         if (token != null) {
@@ -412,5 +411,62 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             }
         }
         return null;
+    }
+
+    /*
+        获取用户信息
+     */
+    @Override
+    public ResponseResult getUserInfo(String userId) {
+        // 1.数据库中查找用户
+        User userFromDbById = userMapper.selectById(userId);
+        if (userFromDbById == null) {
+            return ResponseResult.FAILED("用户不存在。");
+        }
+        // 2.复制对象，清空敏感性数据
+        String userToJson = gson.toJson(userFromDbById);
+        User jsonToUser = gson.fromJson(userToJson, User.class);
+        jsonToUser.setPassword(null);
+        jsonToUser.setEmail(null);
+        jsonToUser.setRegIp(null);
+        jsonToUser.setLogIp(null);
+        return ResponseResult.SUCCESS("成功获取用户信息").setData(jsonToUser);
+    }
+
+    /*
+        更新用户信息
+        允许用户修改的信息   (修改密码、修改邮箱均需要验证)
+        1.用户名   (唯一性)
+        2.密码    (唯一性) (单独修改)
+        3.头像
+        4.邮箱    (单独修改)
+        5.签名
+     */
+
+    @Override
+    public ResponseResult updateUserInfo(String userId, User user, HttpServletRequest req, HttpServletResponse resp) {
+        User userFromToken = checkUser(req, resp);
+        if (userFromToken == null) {
+            return ResponseResult.GET(ResponseState.ACCOUNT_NOT_LOGIN);
+        }
+        if (!userFromToken.getId().equals(userId)) {
+            return ResponseResult.FAILED("无权限修改。");
+        }
+        //  设置用户名
+        String userName = user.getUserName();
+        if (!TextUtil.isEmpty(userName)) {
+            User userFromDbByUserName = userMapper.selectByUserName(userName);
+            if (userFromDbByUserName != null) {
+                return ResponseResult.FAILED("该用户名已注册");
+            }
+            userFromToken.setUserName(userName);
+        }
+        //  设置头像
+        if (!TextUtil.isEmpty(user.getAvatar())) {
+            userFromToken.setAvatar(user.getAvatar());
+        }
+        //  设置签名
+        userFromToken.setSign(user.getSign());
+
     }
 }

@@ -17,6 +17,10 @@ public class ResponseResult {
         this.message = state.getMessage();
     }
 
+    public static ResponseResult GET(ResponseState state) {
+        return new ResponseResult(state);
+    }
+
     public static ResponseResult SUCCESS() {
         return new ResponseResult(ResponseState.SUCCESS);
     }
@@ -25,10 +29,6 @@ public class ResponseResult {
         ResponseResult responseResult = new ResponseResult(ResponseState.SUCCESS);
         responseResult.setMessage(message);
         return responseResult;
-    }
-
-    public static ResponseResult GET(ResponseState state) {
-        return new ResponseResult(state);
     }
 
     public static ResponseResult FAILED() {
