@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,9 +38,9 @@ public class UserController {
        @Return
     */
     @GetMapping("/captcha")
-    public void getCaptcha(HttpServletResponse response, @RequestParam("captcha_key") String captchaKey) {
+    public void getCaptcha(@RequestParam("captcha_key") String captchaKey, HttpServletResponse resp) {
         try {
-            userService.createCapture(response, captchaKey);
+            userService.createCapture(captchaKey, resp);
         } catch (Exception e) {
             log.error(e.getMessage());
         }
@@ -54,11 +55,10 @@ public class UserController {
         @Return
      */
     @GetMapping("/email_code")
-    public ResponseResult sendEmailCode(HttpServletRequest req, @RequestParam("email") String emailAddress,
-                                        @RequestParam("type") String type) {
+    public ResponseResult sendEmailCode(@RequestParam("email") String emailAddress, @RequestParam("type") String type, HttpServletRequest req) {
         ResponseResult responseResult = null;
         try {
-            responseResult = userService.sendEmailCode(req, emailAddress, type);
+            responseResult = userService.sendEmailCode(emailAddress, type, req);
         } catch (Exception e) {
             log.error(e.getMessage());
         }
@@ -68,10 +68,7 @@ public class UserController {
     /*
         检查邮箱是否已经注册
      */
-    @ApiResponses({
-            @ApiResponse(code = 20000, message = "当前邮箱已经注册"),
-            @ApiResponse(code = 40000, message = "当前邮箱未注册")
-    })
+    @ApiResponses({@ApiResponse(code = 20000, message = "当前邮箱已经注册"), @ApiResponse(code = 40000, message = "当前邮箱未注册")})
     @GetMapping("/email")
     public ResponseResult checkEmail(@RequestParam("email") String email) {
         return userService.checkEmail(email);
@@ -80,13 +77,26 @@ public class UserController {
     /*
         检查用户名是否已经注册
      */
-    @ApiResponses({
-            @ApiResponse(code = 20000, message = "当前用户已经注册"),
-            @ApiResponse(code = 40000, message = "当前用户未注册")
-    })
+    @ApiResponses({@ApiResponse(code = 20000, message = "当前用户已经注册"), @ApiResponse(code = 40000, message = "当前用户未注册")})
     @GetMapping("/user_name")
     public ResponseResult checkUserName(@RequestParam("userName") String userName) {
         return userService.checkUserName(userName);
+    }
+
+    /*
+        修改密码
+     */
+    @PutMapping("/password/{emailCode}")
+    public ResponseResult updatePassword(@PathVariable("emailCode") String emailCode, @RequestBody User user) {
+        return userService.updatePassword(emailCode, user);
+    }
+
+    /*
+        更新用户邮箱
+     */
+    @PutMapping("/eamil/{email_code}")
+    public ResponseResult updateEamil(@PathVariable("email_code") String emailCode, @RequestParam("email") String email, HttpServletRequest req, HttpServletResponse resp) {
+        return userService.updateEmail(emailCode, email, req, resp);
     }
 
     /*
@@ -110,11 +120,7 @@ public class UserController {
         @Return
      */
     @PostMapping
-    public ResponseResult register(@RequestBody User user,
-                                   @RequestParam("email_code") String emailCode,
-                                   @RequestParam("captcha_key") String captchaKey,
-                                   @RequestParam("captcha_code") String captchaCode,
-                                   HttpServletRequest req) {
+    public ResponseResult register(@RequestBody User user, @RequestParam("email_code") String emailCode, @RequestParam("captcha_key") String captchaKey, @RequestParam("captcha_code") String captchaCode, HttpServletRequest req) {
         return userService.register(user, emailCode, captchaKey, captchaCode, req);
     }
 
@@ -142,11 +148,29 @@ public class UserController {
     }
 
     /*
+        获取用户列表
+     */
+    @PreAuthorize("@permission.admin()")
+    @GetMapping("/list")
+    public ResponseResult listUsers(@RequestParam("page") int page, @RequestParam("size") int size, HttpServletRequest req, HttpServletResponse resp) {
+        return userService.listUsers(page, size, req, resp);
+    }
+
+    /*
         更新用户信息
      */
     @PutMapping("/{userId}")
-    public ResponseResult updateUserInfo(@RequestParam("userId") String userId, @RequestBody User user, HttpServletRequest req, HttpServletResponse resp) {
+    public ResponseResult updateUserInfo(@PathVariable("userId") String userId, @RequestBody User user, HttpServletRequest req, HttpServletResponse resp) {
         return userService.updateUserInfo(userId, user, req, resp);
+    }
+
+    /*
+        删除用户
+     */
+    @PreAuthorize("@permission.admin()")
+    @DeleteMapping("/{userId}")
+    public ResponseResult deleteUser(@PathVariable("userId") String userId, HttpServletRequest req, HttpServletResponse resp) {
+        return userService.deleteUser(userId, req, resp);
     }
 }
 

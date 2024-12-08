@@ -33,4 +33,29 @@
         from tb_user
         where email = #{email}
     </select>
+    <select id="selectPageVo" resultType="com.lynnwork.sobblogsystem.pojo.User">
+        select id,
+               user_name,
+               role,
+               avatar,
+               email,
+               sign,
+               state,
+               reg_ip,
+               log_ip,
+               create_time,
+               update_time
+        from tb_user
+        order by create_time DESC
+    </select>
+    <update id="updatePasswordByEmail">
+        update tb_user
+        set password = #{password}
+        where email = #{email}
+    </update>
+    <update id="deleteUserByState">
+        update tb_user
+        set state = 0
+        where id = #{user_id}
+    </update>
 </mapper>

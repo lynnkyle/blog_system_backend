@@ -1,5 +1,6 @@
 package com.lynnwork.sobblogsystem.response;
 
+import com.baomidou.mybatisplus.extension.api.R;
 import lombok.*;
 
 @Data
@@ -39,6 +40,38 @@ public class ResponseResult {
         ResponseResult responseResult = new ResponseResult(ResponseState.FAILED);
         responseResult.setMessage(message);
         return responseResult;
+    }
+
+    public static ResponseResult JOIN_IN_SUCCESS() {
+        return new ResponseResult(ResponseState.JOIN_IN_SUCCESS);
+    }
+
+    public static ResponseResult ERROR_403() {
+        return new ResponseResult(ResponseState.ERROR_404);
+    }
+
+    public static ResponseResult ERROR_404() {
+        return new ResponseResult(ResponseState.ERROR_404);
+    }
+
+    public static ResponseResult ERROR_504() {
+        return new ResponseResult(ResponseState.ERROR_504);
+    }
+
+    public static ResponseResult ERROR_505() {
+        return new ResponseResult(ResponseState.ERROR_505);
+    }
+
+    public static ResponseResult PERMISSION_DENY() {
+        return new ResponseResult(ResponseState.PERMISSION_DENY);
+    }
+
+    public static ResponseResult ACCOUNT_NOT_LOGIN() {
+        return new ResponseResult(ResponseState.ACCOUNT_NOT_LOGIN);
+    }
+
+    public static ResponseResult ACCOUNT_DENY() {
+        return new ResponseResult(ResponseState.ACCOUNT_DENY);
     }
 
     public ResponseResult setData(Object data) {

@@ -1,5 +1,7 @@
 package com.lynnwork.sobblogsystem.service.impl;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.gson.Gson;
 import com.lynnwork.sobblogsystem.mapper.RefreshTokenMapper;
 import com.lynnwork.sobblogsystem.mapper.SettingMapper;
@@ -8,7 +10,6 @@ import com.lynnwork.sobblogsystem.pojo.Setting;
 import com.lynnwork.sobblogsystem.pojo.User;
 import com.lynnwork.sobblogsystem.mapper.UserMapper;
 import com.lynnwork.sobblogsystem.response.ResponseResult;
-import com.lynnwork.sobblogsystem.response.ResponseState;
 import com.lynnwork.sobblogsystem.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lynnwork.sobblogsystem.utils.*;
@@ -17,8 +18,6 @@ import com.wf.captcha.GifCaptcha;
 import com.wf.captcha.SpecCaptcha;
 import com.wf.captcha.base.Captcha;
 import io.jsonwebtoken.Claims;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -70,7 +69,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     /*
         生成图灵验证码
      */
-    public void createCapture(HttpServletResponse response, String captchaKey) throws Exception {
+    public void createCapture(String captchaKey, HttpServletResponse response) throws Exception {
         if (TextUtil.isEmpty(captchaKey) || captchaKey.length() < 13) {
             return;
         }
@@ -111,25 +110,25 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         修改邮箱(update):如果新的邮箱地址已经注册,提示该邮箱已注册;
      */
     @Override
-    public ResponseResult sendEmailCode(HttpServletRequest req, String emailAddress, String type) throws Exception {
+    public ResponseResult sendEmailCode(String emailAddress, String type, HttpServletRequest req) throws Exception {
         if (emailAddress == null) {
             ResponseResult.FAILED("邮箱地址不可以为空。");
         }
         if ("register".equals(type) || "update".equals(type)) {
             User userByEmail = userMapper.selectByEmail(emailAddress);
-            if (userByEmail != null) {
+            if (userByEmail == null) {
                 return ResponseResult.FAILED("该邮箱已注册。");
             }
         } else if ("forget".equals(type)) {
             User userByEmail = userMapper.selectByEmail(emailAddress);
-            if (userByEmail != null) {
+            if (userByEmail == null) {
                 return ResponseResult.FAILED("该邮箱未注册。");
             }
         }
         /*
-        1.防止暴力发送邮箱:
-            1)同一邮箱间隔30s发送一次;
-            2)同一Ip地址,1h最多只能发10次(如果是短信,最多只能发5次)
+            1.防止暴力发送邮箱:
+                1)同一邮箱间隔30s发送一次;
+                2)同一Ip地址,1h最多只能发10次(如果是短信,最多只能发5次)
         */
         String emailIp = req.getRemoteAddr();
         emailIp = emailIp.replaceAll(":", "-");
@@ -221,6 +220,57 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     public ResponseResult checkUserName(String userName) {
         User userFromDbByUserName = userMapper.selectByUserName(userName);
         return userFromDbByUserName == null ? ResponseResult.FAILED("该用户名未注册。") : ResponseResult.SUCCESS("该用户名已注册。");
+    }
+
+    /*
+        修改用户密码(修改密码、找回密码)
+        普通做法(只可以修改用户密码):
+            通过旧密码对比来更新密码;
+        高级做法(即可以找回密码，也可以修改密码):
+            发送邮箱/手机验证码，通过判断验证码是否正确来判断对应邮箱/手机号码所注册的账号是否属于用户。
+     */
+    @Override
+    public ResponseResult updatePassword(String emailCode, User user) {
+        //1.检查邮箱格式
+        if (!TextUtil.isEmailAddressOk(user.getEmail())) {
+            return ResponseResult.FAILED("邮箱格式不正确。");
+        }
+        //2.检查邮箱验证码
+        String emailCodeFromRedis = (String) redisUtil.get(Constants.User.KEY_EMAIL_CODE_CONTENT + user.getEmail());
+        if (emailCodeFromRedis == null || !emailCodeFromRedis.equals(emailCode)) {
+            return ResponseResult.FAILED("验证码错误。");
+        }
+        redisUtil.del(Constants.User.KEY_EMAIL_CODE_CONTENT + user.getEmail());
+        //3.修改用户密码
+        int result = userMapper.updatePasswordByEmail(encoder.encode(user.getPassword()), user.getEmail());
+        if (result > 0) {
+            return ResponseResult.SUCCESS("密码修改成功。");
+        }
+        return ResponseResult.FAILED("密码修改失败。");
+    }
+
+    /*
+        修改用户邮箱
+     */
+    @Override
+    public ResponseResult updateEmail(String emailCode, String email, HttpServletRequest req, HttpServletResponse resp) {
+        //1.检查当前操作的用户
+        User userFromToken = checkUser(req, resp);
+        if (userFromToken == null) {
+            return ResponseResult.ACCOUNT_NOT_LOGIN();
+        }
+        //2.检查新的邮箱地址
+        User userFromDbByEmail = userMapper.selectByEmail(email);
+        if (userFromDbByEmail != null) {
+            return ResponseResult.FAILED("邮箱已被注册。");
+        }
+        //3.检查邮箱验证码
+        String emailCodeFronRedis = (String) redisUtil.get(Constants.User.KEY_EMAIL_CODE_CONTENT + userFromToken.getEmail());
+        if (emailCodeFronRedis == null || !emailCodeFronRedis.equals(email)) {
+            return ResponseResult.FAILED("邮箱验证码错误。");
+        }
+        //4.修改用户邮箱
+
     }
 
     /*
@@ -330,7 +380,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         //5.保存到数据库
         userMapper.insert(user);
         //6.返回结果
-        return ResponseResult.GET(ResponseState.JOIN_IN_SUCCESS);
+        return ResponseResult.JOIN_IN_SUCCESS();
     }
 
     /*
@@ -343,6 +393,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         if (!captchaValue.equals(captcha.toLowerCase())) {
             return ResponseResult.FAILED("人类验证码不正确。");
         }
+        redisUtil.del(Constants.User.KEY_CAPTCHA_CONTENT + captchaKey);
         //2.根据用户名或密码查找用户
         String userName = user.getUserName();
         if (TextUtil.isEmpty(userName)) {
@@ -367,7 +418,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         }
 
         if (!("1".equals(userFromDbByNameOrEmail.getState()))) {
-            return ResponseResult.FAILED("当前账号已被冻结。");
+            return ResponseResult.ACCOUNT_DENY();
         }
         //4.生成Token
         createToken(userFromDbByNameOrEmail, resp);
@@ -418,12 +469,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
      */
     @Override
     public ResponseResult getUserInfo(String userId) {
-        // 1.数据库中查找用户
+        //1.数据库中查找用户
         User userFromDbById = userMapper.selectById(userId);
         if (userFromDbById == null) {
             return ResponseResult.FAILED("用户不存在。");
         }
-        // 2.复制对象，清空敏感性数据
+        //2.复制对象，清空敏感性数据
         String userToJson = gson.toJson(userFromDbById);
         User jsonToUser = gson.fromJson(userToJson, User.class);
         jsonToUser.setPassword(null);
@@ -431,6 +482,35 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         jsonToUser.setRegIp(null);
         jsonToUser.setLogIp(null);
         return ResponseResult.SUCCESS("成功获取用户信息").setData(jsonToUser);
+    }
+
+    /*
+        获取用户列表
+        1.需要管理员权限
+     */
+    @Override
+    public ResponseResult listUsers(int page, int size, HttpServletRequest req, HttpServletResponse resp) {
+        /*
+            //1.检查当前操作的用户
+            User userFromToken = checkUser(req, resp);
+            if (userFromToken == null) {
+                return ResponseResult.ACCOUNT_NOT_LOGIN();
+            }
+            //2.判断当前用户角色
+            if (!Constants.User.ROLE_ADMIN.equals(userFromToken.getRole())) {
+                return ResponseResult.PERMISSION_DENY();
+            }
+            //3.获取用户列表
+            if (page < Constants.Page.DEFAULT_PAGE) {
+                page = Constants.Page.DEFAULT_PAGE;
+            }
+        */
+        if (size < Constants.Page.MIN_SIZE) {
+            size = Constants.Page.MIN_SIZE;
+        }
+        IPage<User> iPage = new Page<User>(page, size);
+        IPage<User> iPageByDb = userMapper.selectPageVo(iPage);
+        return ResponseResult.SUCCESS("成功获取用户列表").setData(iPageByDb);
     }
 
     /*
@@ -445,13 +525,18 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     @Override
     public ResponseResult updateUserInfo(String userId, User user, HttpServletRequest req, HttpServletResponse resp) {
+        //1.检查当前操作用户
         User userFromToken = checkUser(req, resp);
         if (userFromToken == null) {
-            return ResponseResult.GET(ResponseState.ACCOUNT_NOT_LOGIN);
+            return ResponseResult.ACCOUNT_NOT_LOGIN();
         }
-        if (!userFromToken.getId().equals(userId)) {
-            return ResponseResult.FAILED("无权限修改。");
+        String userFromTokenId = userFromToken.getId();
+        //2.判断当前用户与更新用户一致性
+        if (!userFromTokenId.equals(userId)) {
+            return ResponseResult.PERMISSION_DENY();
         }
+        User userFromDb = userMapper.selectById(userFromTokenId);
+        //3.更新用户信息
         //  设置用户名
         String userName = user.getUserName();
         if (!TextUtil.isEmpty(userName)) {
@@ -459,14 +544,46 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             if (userFromDbByUserName != null) {
                 return ResponseResult.FAILED("该用户名已注册");
             }
-            userFromToken.setUserName(userName);
+            userFromDb.setUserName(userName);
         }
         //  设置头像
-        if (!TextUtil.isEmpty(user.getAvatar())) {
-            userFromToken.setAvatar(user.getAvatar());
+        String avatar = user.getAvatar();
+        if (!TextUtil.isEmpty(avatar)) {
+            userFromDb.setAvatar(avatar);
         }
         //  设置签名
-        userFromToken.setSign(user.getSign());
+        userFromDb.setSign(user.getSign());
+        userMapper.updateById(userFromDb);
+        //4.更新token信息(删除Token中的错误信息,下次需要时从refreshToken中取出)
+        String tokenKey = CookieUtils.getCookieValue(req, Constants.User.KEY_COOKIE_TOKEN);
+        redisUtil.del(Constants.User.KEY_TOKEN_CONTENT + tokenKey);
+        return ResponseResult.SUCCESS("用户信息更新成功");
+    }
 
+    /*
+        删除用户
+        1.需要管理员状态
+        2.并不是真的删除,而是修改其状态
+        //TODO:通过注解的方式来控制权限
+     */
+    @Override
+    public ResponseResult deleteUser(String userId, HttpServletRequest req, HttpServletResponse resp) {
+        /*
+            //1.检查当前操作的用户
+            User userFromToken = checkUser(req, resp);
+            if (userFromToken == null) {
+                return ResponseResult.ACCOUNT_NOT_LOGIN();
+            }
+            //2.判断当前用户角色
+            if (!Constants.User.ROLE_ADMIN.equals(userFromToken.getRole())) {
+                return ResponseResult.PERMISSION_DENY();
+            }
+        */
+        //3.删除用户
+        int result = userMapper.deleteUserByState(userId);
+        if (result > 0) {
+            return ResponseResult.SUCCESS("删除用户成功");
+        }
+        return ResponseResult.FAILED("用户不存在");
     }
 }

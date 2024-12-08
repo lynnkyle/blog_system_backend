@@ -17,6 +17,11 @@ public interface Constants {
         String ADMIN_ACCOUNT_INIT_STATE = "admin_account_init_state";
     }
 
+    interface Page {
+        int DEFAULT_PAGE = 1;
+        int MIN_SIZE = 5;
+    }
+
     interface TimeValueInSecond {
         int MIN = 60;
         int HOUR = 60 * MIN;

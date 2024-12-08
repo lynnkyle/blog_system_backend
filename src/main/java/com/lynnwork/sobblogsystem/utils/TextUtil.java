@@ -10,6 +10,7 @@ public class TextUtil {
     }
 
     public static boolean isEmailAddressOk(String email) {
+        if (TextUtil.isEmpty(email)) return false;
         String regExp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
         Pattern pattern = Pattern.compile(regExp);
         Matcher matcher = pattern.matcher(email);

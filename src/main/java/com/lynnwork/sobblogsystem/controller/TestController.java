@@ -32,7 +32,7 @@ public class TestController {
     public ResponseResult Test(@RequestBody Article article, HttpServletRequest req, HttpServletResponse resp) {
         User user = userService.checkUser(req, resp);
         if (user == null) {
-            return ResponseResult.FAILED("用户未登录。");
+            return ResponseResult.ACCOUNT_NOT_LOGIN();
         }
         article.setId(article.getId());
         article.setUserId(user.getId());
