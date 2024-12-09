@@ -29,8 +29,8 @@ public class TestController {
     private IUserService userService;
 
     @PostMapping("/article")
-    public ResponseResult Test(@RequestBody Article article, HttpServletRequest req, HttpServletResponse resp) {
-        User user = userService.checkUser(req, resp);
+    public ResponseResult Test(@RequestBody Article article) {
+        User user = userService.checkUser();
         if (user == null) {
             return ResponseResult.ACCOUNT_NOT_LOGIN();
         }

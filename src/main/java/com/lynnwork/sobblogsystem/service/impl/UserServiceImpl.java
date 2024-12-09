@@ -24,6 +24,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -65,6 +67,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     private SettingMapper settingMapper;
     @Autowired
     private RefreshTokenMapper refreshTokenMapper;
+
+    public HttpServletRequest getRequest() {
+        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        return requestAttributes.getRequest();
+    }
+
+    public HttpServletResponse getResponse() {
+        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        return requestAttributes.getResponse();
+    }
 
     /*
         生成图灵验证码
@@ -166,14 +178,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         系统的增删改功能均需要涉及用户检查
      */
     @Override
-    public User checkUser(HttpServletRequest req, HttpServletResponse resp) {
+    public User checkUser() {
         /*
             Double Token方案:
             1.token:有效期2小时，存放在redis中
             2.refreshToken:有效期30天，存放在mysql中
         */
         //1.从Cookie中拿到tokenKey
-        String tokenKey = CookieUtils.getCookieValue(req, Constants.User.KEY_COOKIE_TOKEN);
+        String tokenKey = CookieUtils.getCookieValue(getRequest(), Constants.User.KEY_COOKIE_TOKEN);
         if (TextUtil.isEmpty(tokenKey)) { //tokenKey无内容 当前访问未登录
             return null;
         }
@@ -193,7 +205,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
                 // refreshToken未过期，重新生成token和refreshToken
                 String userId = refreshTokenFromDbByTokenKey.getUserId();
                 User userFromDbById = userMapper.selectById(userId);
-                String newTokenKey = createToken(userFromDbById, resp);
+                String newTokenKey = createToken(userFromDbById, getResponse());
                 return parseByTokenKey(newTokenKey);
             } catch (Exception e) {
                 // refreshToken过期，用户需要重新登录
@@ -253,24 +265,25 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         修改用户邮箱
      */
     @Override
-    public ResponseResult updateEmail(String emailCode, String email, HttpServletRequest req, HttpServletResponse resp) {
+    public ResponseResult updateEmail(String emailCode, String email) {
         //1.检查当前操作的用户
-        User userFromToken = checkUser(req, resp);
+        User userFromToken = checkUser();
         if (userFromToken == null) {
             return ResponseResult.ACCOUNT_NOT_LOGIN();
         }
-        //2.检查新的邮箱地址
+        //2.检查邮箱验证码
+        String emailCodeFromRedis = (String) redisUtil.get(Constants.User.KEY_EMAIL_CODE_CONTENT + userFromToken.getEmail());
+        if (TextUtil.isEmpty(emailCodeFromRedis) || !emailCodeFromRedis.equals(emailCode)) {
+            return ResponseResult.FAILED("邮箱验证码错误。");
+        }
+        //3.检查新的邮箱地址
         User userFromDbByEmail = userMapper.selectByEmail(email);
         if (userFromDbByEmail != null) {
             return ResponseResult.FAILED("邮箱已被注册。");
         }
-        //3.检查邮箱验证码
-        String emailCodeFronRedis = (String) redisUtil.get(Constants.User.KEY_EMAIL_CODE_CONTENT + userFromToken.getEmail());
-        if (emailCodeFronRedis == null || !emailCodeFronRedis.equals(email)) {
-            return ResponseResult.FAILED("邮箱验证码错误。");
-        }
         //4.修改用户邮箱
-
+        int result = userMapper.updateEmailById(userFromToken.getId(), email);
+        return result > 0 ? ResponseResult.SUCCESS("邮箱修改成功。") : ResponseResult.FAILED("邮箱修改失败。");
     }
 
     /*
@@ -489,7 +502,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         1.需要管理员权限
      */
     @Override
-    public ResponseResult listUsers(int page, int size, HttpServletRequest req, HttpServletResponse resp) {
+    public ResponseResult listUsers(int page, int size) {
         /*
             //1.检查当前操作的用户
             User userFromToken = checkUser(req, resp);
@@ -524,9 +537,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
      */
 
     @Override
-    public ResponseResult updateUserInfo(String userId, User user, HttpServletRequest req, HttpServletResponse resp) {
+    public ResponseResult updateUserInfo(String userId, User user) {
         //1.检查当前操作用户
-        User userFromToken = checkUser(req, resp);
+        User userFromToken = checkUser();
         if (userFromToken == null) {
             return ResponseResult.ACCOUNT_NOT_LOGIN();
         }
@@ -555,7 +568,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         userFromDb.setSign(user.getSign());
         userMapper.updateById(userFromDb);
         //4.更新token信息(删除Token中的错误信息,下次需要时从refreshToken中取出)
-        String tokenKey = CookieUtils.getCookieValue(req, Constants.User.KEY_COOKIE_TOKEN);
+        String tokenKey = CookieUtils.getCookieValue(getRequest(), Constants.User.KEY_COOKIE_TOKEN);
         redisUtil.del(Constants.User.KEY_TOKEN_CONTENT + tokenKey);
         return ResponseResult.SUCCESS("用户信息更新成功");
     }
@@ -567,7 +580,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         //TODO:通过注解的方式来控制权限
      */
     @Override
-    public ResponseResult deleteUser(String userId, HttpServletRequest req, HttpServletResponse resp) {
+    public ResponseResult deleteUser(String userId) {
         /*
             //1.检查当前操作的用户
             User userFromToken = checkUser(req, resp);
@@ -585,5 +598,28 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             return ResponseResult.SUCCESS("删除用户成功");
         }
         return ResponseResult.FAILED("用户不存在");
+    }
+
+    /*
+        退出登录
+        取出token_key:
+            1.删除redis里对应的token;
+            2.删除mysql里对应的refreshToken;
+            3.删除cookie里对应的token_key;
+     */
+    @Override
+    public ResponseResult doLogout() {
+        //1.取出token_key
+        String tokenKey = CookieUtils.getCookieValue(getRequest(), Constants.User.KEY_COOKIE_TOKEN);
+        if (TextUtil.isEmpty(tokenKey)) {
+            return ResponseResult.ACCOUNT_NOT_LOGIN();
+        }
+        //2.删除redis里对应的token
+        redisUtil.del(Constants.User.KEY_TOKEN_CONTENT + tokenKey);
+        //4.删除cookie里对应的tokenKey
+        CookieUtils.deleteCookieValue(getResponse(), Constants.User.KEY_COOKIE_TOKEN);
+        //3.删除mysql里对应的refreshToken
+        int res = refreshTokenMapper.deleteByTokenKey(tokenKey);
+        return res > 0 ? ResponseResult.SUCCESS("退出登录成功") : ResponseResult.FAILED("退出登录失败");
     }
 }

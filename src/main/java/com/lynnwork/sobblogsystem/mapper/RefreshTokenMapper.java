@@ -16,4 +16,6 @@ public interface RefreshTokenMapper extends BaseMapper<RefreshToken> {
     RefreshToken selectByTokenKey(@Param("token_key") String tokenKey);
 
     int deleteByUserId(@Param("user_id") String userId);
+
+    int deleteByTokenKey(@Param("token_key") String tokenKey);
 }

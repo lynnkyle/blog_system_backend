@@ -94,9 +94,9 @@ public class UserController {
     /*
         更新用户邮箱
      */
-    @PutMapping("/eamil/{email_code}")
-    public ResponseResult updateEamil(@PathVariable("email_code") String emailCode, @RequestParam("email") String email, HttpServletRequest req, HttpServletResponse resp) {
-        return userService.updateEmail(emailCode, email, req, resp);
+    @PutMapping("/email/{email_code}")
+    public ResponseResult updateEmail(@PathVariable("email_code") String emailCode, @RequestParam("email") String email) {
+        return userService.updateEmail(emailCode, email);
     }
 
     /*
@@ -152,16 +152,16 @@ public class UserController {
      */
     @PreAuthorize("@permission.admin()")
     @GetMapping("/list")
-    public ResponseResult listUsers(@RequestParam("page") int page, @RequestParam("size") int size, HttpServletRequest req, HttpServletResponse resp) {
-        return userService.listUsers(page, size, req, resp);
+    public ResponseResult listUsers(@RequestParam("page") int page, @RequestParam("size") int size) {
+        return userService.listUsers(page, size);
     }
 
     /*
         更新用户信息
      */
     @PutMapping("/{userId}")
-    public ResponseResult updateUserInfo(@PathVariable("userId") String userId, @RequestBody User user, HttpServletRequest req, HttpServletResponse resp) {
-        return userService.updateUserInfo(userId, user, req, resp);
+    public ResponseResult updateUserInfo(@PathVariable("userId") String userId, @RequestBody User user) {
+        return userService.updateUserInfo(userId, user);
     }
 
     /*
@@ -169,8 +169,16 @@ public class UserController {
      */
     @PreAuthorize("@permission.admin()")
     @DeleteMapping("/{userId}")
-    public ResponseResult deleteUser(@PathVariable("userId") String userId, HttpServletRequest req, HttpServletResponse resp) {
-        return userService.deleteUser(userId, req, resp);
+    public ResponseResult deleteUser(@PathVariable("userId") String userId) {
+        return userService.deleteUser(userId);
+    }
+
+    /*
+        退出登录
+     */
+    @GetMapping("/logout")
+    public ResponseResult logout() {
+        return userService.doLogout();
     }
 }
 

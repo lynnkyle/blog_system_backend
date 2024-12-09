@@ -21,7 +21,7 @@ public interface IUserService extends IService<User> {
 
     ResponseResult sendEmailCode(String emailAddress, String type, HttpServletRequest req) throws Exception;
 
-    User checkUser(HttpServletRequest req, HttpServletResponse resp);
+    User checkUser();
 
     ResponseResult checkEmail(String email);
 
@@ -29,7 +29,7 @@ public interface IUserService extends IService<User> {
 
     ResponseResult updatePassword(String emailCode, User user);
 
-    ResponseResult updateEmail(String emailCode, String email, HttpServletRequest req, HttpServletResponse resp);
+    ResponseResult updateEmail(String emailCode, String email);
 
     ResponseResult initManagerAccount(User user, HttpServletRequest req);
 
@@ -39,9 +39,11 @@ public interface IUserService extends IService<User> {
 
     ResponseResult getUserInfo(String userId);
 
-    ResponseResult listUsers(int page, int size, HttpServletRequest req, HttpServletResponse resp);
+    ResponseResult listUsers(int page, int size);
 
-    ResponseResult updateUserInfo(String userId, User user, HttpServletRequest req, HttpServletResponse resp);
+    ResponseResult updateUserInfo(String userId, User user);
 
-    ResponseResult deleteUser(String userId, HttpServletRequest req, HttpServletResponse resp);
+    ResponseResult deleteUser(String userId);
+
+    ResponseResult doLogout();
 }

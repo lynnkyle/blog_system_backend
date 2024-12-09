@@ -11,4 +11,9 @@
         from tb_refresh_token
         where user_id = #{user_id}
     </delete>
+    <delete id="deleteByTokenKey">
+        delete
+        from tb_refresh_token
+        where token_key = #{token_key}
+    </delete>
 </mapper>

@@ -56,6 +56,11 @@
     <update id="deleteUserByState">
         update tb_user
         set state = 0
-        where id = #{user_id}
+        where id = #{id}
+    </update>
+    <update id="updateEmailById">
+        update tb_user
+        set email =#{email}
+        where id = #{id}
     </update>
 </mapper>
