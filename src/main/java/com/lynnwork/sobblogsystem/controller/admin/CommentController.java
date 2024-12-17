@@ -1,4 +1,4 @@
-package com.lynnwork.sobblogsystem.controller;
+package com.lynnwork.sobblogsystem.controller.admin;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;

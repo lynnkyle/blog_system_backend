@@ -17,6 +17,10 @@ public interface Constants {
         String ADMIN_ACCOUNT_INIT_STATE = "admin_account_init_state";
     }
 
+    interface Category {
+        String DEFAULT_STATE = "1";
+    }
+
     interface Page {
         int DEFAULT_PAGE = 1;
         int MIN_SIZE = 5;

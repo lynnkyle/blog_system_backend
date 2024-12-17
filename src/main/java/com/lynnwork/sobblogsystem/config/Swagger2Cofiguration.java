@@ -16,17 +16,36 @@ public class Swagger2Cofiguration {
     public static final String version = "1.0.0";
 
     @Bean
-    public Docket UserApi() {
+    public Docket userApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(userApiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.lynnwork.sobblogsystem"))
+                .apis(RequestHandlerSelectors.basePackage("com.lynnwork.sobblogsystem.controller.user"))
                 .paths(PathSelectors.any())
                 .build()
-                .groupName("用户接口文档");
+                .groupName("用户中心");
     }
 
     public ApiInfo userApiInfo() {
+        return new ApiInfoBuilder()
+                .title("Lynn博客系统")
+                .description("Lynn博客系统接口文档")
+                .version(version)
+                .build();
+    }
+
+    @Bean
+    public Docket adminApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(adminApiInfo())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.lynnwork.sobblogsystem.controller.portal"))
+                .paths(PathSelectors.any())
+                .build()
+                .groupName("管理中心");
+    }
+
+    public ApiInfo adminApiInfo() {
         return new ApiInfoBuilder()
                 .title("Lynn博客系统")
                 .description("Lynn博客系统接口文档")

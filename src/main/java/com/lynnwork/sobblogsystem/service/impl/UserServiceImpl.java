@@ -272,10 +272,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             return ResponseResult.ACCOUNT_NOT_LOGIN();
         }
         //2.检查邮箱验证码
-        String emailCodeFromRedis = (String) redisUtil.get(Constants.User.KEY_EMAIL_CODE_CONTENT + userFromToken.getEmail());
+        String emailFromToken = userFromToken.getEmail();
+        String emailCodeFromRedis = (String) redisUtil.get(Constants.User.KEY_EMAIL_CODE_CONTENT + emailFromToken);
         if (TextUtil.isEmpty(emailCodeFromRedis) || !emailCodeFromRedis.equals(emailCode)) {
             return ResponseResult.FAILED("邮箱验证码错误。");
         }
+        redisUtil.del(Constants.User.KEY_EMAIL_CODE_CONTENT + emailFromToken);
         //3.检查新的邮箱地址
         User userFromDbByEmail = userMapper.selectByEmail(email);
         if (userFromDbByEmail != null) {

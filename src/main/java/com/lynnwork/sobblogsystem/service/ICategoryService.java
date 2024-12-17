@@ -2,6 +2,7 @@ package com.lynnwork.sobblogsystem.service;
 
 import com.lynnwork.sobblogsystem.pojo.Category;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.lynnwork.sobblogsystem.response.ResponseResult;
 
 /**
  * <p>
@@ -12,5 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2024-10-28
  */
 public interface ICategoryService extends IService<Category> {
-
+    ResponseResult addCategory(Category category);
 }

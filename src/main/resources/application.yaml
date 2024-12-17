@@ -62,6 +62,6 @@ mybatis-plus:
   mapper-locations: classpath:/com/lynnwork/sobblogsystem/mapper/xml/*.xml
   configuration:
     map-underscore-to-camel-case: true
-#logging:
-#  level:
-#    com.lynnwork.sobblogsystem.mapper: debug
+logging:
+  level:
+    com.lynnwork.sobblogsystem.mapper: debug

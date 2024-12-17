@@ -67,6 +67,9 @@ public class UserController {
 
     /*
         检查邮箱是否已经注册
+        @Param
+        1.邮箱地址
+        @Return
      */
     @ApiResponses({@ApiResponse(code = 20000, message = "当前邮箱已经注册"), @ApiResponse(code = 40000, message = "当前邮箱未注册")})
     @GetMapping("/email")
@@ -76,6 +79,9 @@ public class UserController {
 
     /*
         检查用户名是否已经注册
+        @Param
+        1.用户名
+        @Return
      */
     @ApiResponses({@ApiResponse(code = 20000, message = "当前用户已经注册"), @ApiResponse(code = 40000, message = "当前用户未注册")})
     @GetMapping("/user_name")
@@ -85,14 +91,22 @@ public class UserController {
 
     /*
         修改密码
+        @Param
+        1.邮箱验证码
+        2.用户信息
+        @Return
      */
-    @PutMapping("/password/{emailCode}")
-    public ResponseResult updatePassword(@PathVariable("emailCode") String emailCode, @RequestBody User user) {
+    @PutMapping("/password/{email_code}")
+    public ResponseResult updatePassword(@PathVariable("email_code") String emailCode, @RequestBody User user) {
         return userService.updatePassword(emailCode, user);
     }
 
     /*
         更新用户邮箱
+        @Param
+        1.邮箱验证码
+        2.新邮箱地址
+        @Return
      */
     @PutMapping("/email/{email_code}")
     public ResponseResult updateEmail(@PathVariable("email_code") String emailCode, @RequestParam("email") String email) {
@@ -102,7 +116,7 @@ public class UserController {
     /*
         初始化管理员账号 /user/admin_account
         @Param
-        1.用户信息()
+        1.用户信息
         @Return
      */
     @PostMapping("/admin_account")
@@ -119,7 +133,7 @@ public class UserController {
         4.图灵验证码
         @Return
      */
-    @PostMapping
+    @PostMapping("/join_in")
     public ResponseResult register(@RequestBody User user, @RequestParam("email_code") String emailCode, @RequestParam("captcha_key") String captchaKey, @RequestParam("captcha_code") String captchaCode, HttpServletRequest req) {
         return userService.register(user, emailCode, captchaKey, captchaCode, req);
     }
@@ -134,21 +148,28 @@ public class UserController {
         HttpServletResponse设置Cookie,将Token放入Cookie,并返回给浏览器
         @Return
      */
-    @PostMapping("/{captcha_key}/{captcha}")
+    @PostMapping("/login/{captcha_key}/{captcha}")
     public ResponseResult doLogin(@PathVariable("captcha_key") String captchaKey, @PathVariable("captcha") String captcha, @RequestBody User user, HttpServletRequest req, HttpServletResponse resp) {
         return userService.doLogin(captchaKey, captcha, user, req, resp);
     }
 
     /*
         获取用户信息
+        @Param
+        1.用户id
+        @Return
      */
-    @GetMapping("/{userId}")
+    @GetMapping("/user_info/{userId}")
     public ResponseResult getUserInfo(@PathVariable("userId") String userId) {
         return userService.getUserInfo(userId);
     }
 
     /*
         获取用户列表
+        @Param
+        1.分页页数
+        2.分页大小
+        @Return
      */
     @PreAuthorize("@permission.admin()")
     @GetMapping("/list")
@@ -158,14 +179,21 @@ public class UserController {
 
     /*
         更新用户信息
+        @Param
+        1.用户id
+        2.用户信息
+        @Return
      */
-    @PutMapping("/{userId}")
+    @PutMapping("/user_info/{userId}")
     public ResponseResult updateUserInfo(@PathVariable("userId") String userId, @RequestBody User user) {
         return userService.updateUserInfo(userId, user);
     }
 
     /*
         删除用户
+        @Param
+        1.用户id
+        @Return
      */
     @PreAuthorize("@permission.admin()")
     @DeleteMapping("/{userId}")
