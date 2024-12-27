@@ -451,7 +451,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         String tokenKey = DigestUtils.md5DigestAsHex(token.getBytes());
         redisUtil.set(Constants.User.KEY_TOKEN_CONTENT + tokenKey, token, Constants.TimeValueInSecond.HOUR_2);
         CookieUtils.setUpCookie(resp, Constants.User.KEY_COOKIE_TOKEN, tokenKey, Constants.TimeValueInSecond.HOUR_2);
-        String refreshTokenValue = JwtUtil.createRefreshToken(userFromDbByNameOrEmail.getId(), Constants.TimeValueInSecond.MONTH);
+        String refreshTokenValue = JwtUtil.createRefreshToken(userFromDbByNameOrEmail.getId(), Constants.TimeValueInMillions.MONTH);
         RefreshToken refreshToken = new RefreshToken();
         refreshToken.setId(String.valueOf(idWorker.nextId()));
         refreshToken.setRefreshToken(refreshTokenValue);
@@ -529,7 +529,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     }
 
     /*
-        更新用户信息
+        更新用户信息  (需要管理员权限)
         允许用户修改的信息   (修改密码、修改邮箱均需要验证)
         1.用户名   (唯一性)
         2.密码    (唯一性) (单独修改)
@@ -576,9 +576,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     }
 
     /*
-        删除用户
-        1.需要管理员状态
-        2.并不是真的删除,而是修改其状态
+        删除用户(需要管理员状态)
+        1.并不是真的删除,而是修改其状态
         //TODO:通过注解的方式来控制权限
      */
     @Override

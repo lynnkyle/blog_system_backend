@@ -1,5 +1,6 @@
 package com.lynnwork.sobblogsystem.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.time.LocalDateTime;
@@ -47,6 +48,7 @@ public class Category implements Serializable {
     /**
      * 顺序
      */
+    @TableField("`order`")
     private Integer order;
 
     /**

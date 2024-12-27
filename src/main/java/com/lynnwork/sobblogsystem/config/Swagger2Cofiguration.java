@@ -39,7 +39,7 @@ public class Swagger2Cofiguration {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(adminApiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.lynnwork.sobblogsystem.controller.portal"))
+                .apis(RequestHandlerSelectors.basePackage("com.lynnwork.sobblogsystem.controller.admin"))
                 .paths(PathSelectors.any())
                 .build()
                 .groupName("管理中心");

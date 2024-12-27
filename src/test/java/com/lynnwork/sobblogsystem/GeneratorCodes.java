@@ -46,7 +46,7 @@ public class GeneratorCodes {
         // 分割多张表
         strategy.setTablePrefix("tb_");
         // [important!!!] 填写表名
-        strategy.setInclude("tb_refresh_token");
+        strategy.setInclude("tb_friend_link");
         strategy.setControllerMappingHyphenStyle(true);
         // strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);

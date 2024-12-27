@@ -2,13 +2,19 @@ package com.lynnwork.sobblogsystem;
 
 import com.lynnwork.sobblogsystem.mapper.DemoMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletRequestContext;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.annotation.security.PermitAll;
 import javax.mail.internet.MimeMessage;
 import java.io.File;
 import java.util.Calendar;
@@ -18,6 +24,7 @@ import java.util.Date;
 @Slf4j
 @SpringBootTest
 class SobBlogSystemApplicationTests {
+
     @Autowired
     private JavaMailSender mailSender;
 
@@ -41,5 +48,12 @@ class SobBlogSystemApplicationTests {
         helper.addAttachment("avatar.html", file2);
         //4.发送邮件
         mailSender.send(mimeMessage);
+    }
+
+    @Test
+    public void text() {
+        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        log.info("request: {}", requestAttributes.getRequest());
+        log.info("request: {}", requestAttributes.getResponse());
     }
 }

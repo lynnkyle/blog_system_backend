@@ -21,6 +21,10 @@ public interface Constants {
         String DEFAULT_STATE = "1";
     }
 
+    interface FriendLink {
+        String DEFAULT_STATE = "1";
+    }
+
     interface Page {
         int DEFAULT_PAGE = 1;
         int MIN_SIZE = 5;
@@ -34,5 +38,16 @@ public interface Constants {
         int WEEK = 7 * DAY;
         int MONTH = 30 * DAY;
         int YEAR = 365 * DAY;
+    }
+
+    interface TimeValueInMillions {
+        long SECOND = 1000;
+        long MIN = 60 * SECOND;
+        long HOUR = 60 * MIN;
+        long HOUR_2 = HOUR * 2;
+        long DAY = 24 * HOUR;
+        long WEEK = 7 * DAY;
+        long MONTH = 30 * DAY;
+        long YEAR = 365 * DAY;
     }
 }

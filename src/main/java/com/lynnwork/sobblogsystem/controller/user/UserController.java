@@ -48,7 +48,7 @@ public class UserController {
 
     /*
         发送邮件验证码 /user/email_code
-        使用场景：注册、找回密码、修改邮箱（会输入新的邮箱）
+        使用场景:注册、找回密码、修改邮箱（会输入新的邮箱）
         @Param
         1.邮箱地址
         2.使用场景的类型
@@ -159,7 +159,7 @@ public class UserController {
         1.用户id
         @Return
      */
-    @GetMapping("/user_info/{userId}")
+    @GetMapping("/{userId}")
     public ResponseResult getUserInfo(@PathVariable("userId") String userId) {
         return userService.getUserInfo(userId);
     }
@@ -184,7 +184,7 @@ public class UserController {
         2.用户信息
         @Return
      */
-    @PutMapping("/user_info/{userId}")
+    @PutMapping("/{userId}")
     public ResponseResult updateUserInfo(@PathVariable("userId") String userId, @RequestBody User user) {
         return userService.updateUserInfo(userId, user);
     }

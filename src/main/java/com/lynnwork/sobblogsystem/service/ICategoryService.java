@@ -14,4 +14,12 @@ import com.lynnwork.sobblogsystem.response.ResponseResult;
  */
 public interface ICategoryService extends IService<Category> {
     ResponseResult addCategory(Category category);
+
+    ResponseResult getCategory(String categoryId);
+
+    ResponseResult listCategories(int page, int size);
+
+    ResponseResult updateCategory(String categoryId, Category category);
+
+    ResponseResult deleteCategory(String categoryId);
 }
