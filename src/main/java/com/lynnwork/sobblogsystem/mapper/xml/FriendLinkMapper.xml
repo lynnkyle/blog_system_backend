@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lynnwork.sobblogsystem.mapper.FriendLinkMapper">
+    <select id="selectPageVo" resultType="com.lynnwork.sobblogsystem.pojo.FriendLink">
+        select id,
+               name,
+               logo,
+               url,
+               `order`,
+               state,
+               create_time,
+               update_time
+        from tb_friend_link
+    </select>
+    <update id="deleteFriendLink">
+        update tb_friend_link
+        set state = 0
+        where id = #{id}
+    </update>
+</mapper>

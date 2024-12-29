@@ -27,7 +27,7 @@ public interface Constants {
 
     interface Page {
         int DEFAULT_PAGE = 1;
-        int MIN_SIZE = 5;
+        int DEFAULT_SIZE = 5;
     }
 
     interface TimeValueInSecond {

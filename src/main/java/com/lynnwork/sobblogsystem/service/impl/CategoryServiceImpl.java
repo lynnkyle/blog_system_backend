@@ -11,7 +11,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lynnwork.sobblogsystem.utils.Constants;
 import com.lynnwork.sobblogsystem.utils.SnowflakeIdWorker;
 import com.lynnwork.sobblogsystem.utils.TextUtil;
-import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,12 +33,6 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
 
     @Autowired
     private CategoryMapper categoryMapper;
-    @Autowired
-    private UserMapper userMapper;
-
-    public CategoryServiceImpl(CategoryMapper categoryMapper) {
-        this.categoryMapper = categoryMapper;
-    }
 
     /*
         添加分类
@@ -89,8 +82,8 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
         if (page < Constants.Page.DEFAULT_PAGE) {
             page = Constants.Page.DEFAULT_PAGE;
         }
-        if (size < Constants.Page.MIN_SIZE) {
-            size = Constants.Page.MIN_SIZE;
+        if (size < Constants.Page.DEFAULT_SIZE) {
+            size = Constants.Page.DEFAULT_SIZE;
         }
         IPage<Category> iPage = new Page<>(page, size);
         IPage<Category> iPageByDb = categoryMapper.selectPageVo(iPage);
@@ -105,23 +98,22 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
             return ResponseResult.FAILED("分类不存在。");
         }
         //2.更改数据(检查数据)
-        category.setId(categoryId);
         String name = category.getName();
         if (!TextUtil.isEmpty(name)) {
-            category.setName(name);
+            categoryFromDbById.setName(name);
         }
         String pinyin = category.getPinyin();
         if (!TextUtil.isEmpty(pinyin)) {
-            category.setPinyin(pinyin);
+            categoryFromDbById.setPinyin(pinyin);
         }
         String description = category.getDescription();
         if (!TextUtil.isEmpty(description)) {
-            category.setDescription(description);
+            categoryFromDbById.setDescription(description);
         }
-        category.setOrder(category.getOrder());
+        categoryFromDbById.setOrder(category.getOrder());
         String state = category.getState();
         if (!TextUtil.isEmpty(state)) {
-            category.setState(state);
+            categoryFromDbById.setState(state);
         }
         //3.保存数据
         categoryMapper.updateById(category);

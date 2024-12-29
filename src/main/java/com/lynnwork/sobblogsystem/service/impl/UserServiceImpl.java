@@ -520,8 +520,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
                 page = Constants.Page.DEFAULT_PAGE;
             }
         */
-        if (size < Constants.Page.MIN_SIZE) {
-            size = Constants.Page.MIN_SIZE;
+        if (size < Constants.Page.DEFAULT_SIZE) {
+            size = Constants.Page.DEFAULT_SIZE;
         }
         IPage<User> iPage = new Page<User>(page, size);
         IPage<User> iPageByDb = userMapper.selectPageVo(iPage);
@@ -568,6 +568,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         }
         //  设置签名
         userFromDb.setSign(user.getSign());
+        //  设置state
+        String state = userFromDb.getState();
+        if (!TextUtil.isEmpty(state)) {
+            userFromDb.setState(state);
+        }
         userMapper.updateById(userFromDb);
         //4.更新token信息(删除Token中的错误信息,下次需要时从refreshToken中取出)
         String tokenKey = CookieUtils.getCookieValue(getRequest(), Constants.User.KEY_COOKIE_TOKEN);
