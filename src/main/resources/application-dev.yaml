@@ -41,10 +41,10 @@ spring:
     host: 192.168.80.154
     port: 6379
     password: 123456
-  servlet:
-    multipart:
-      max-file-size: 1MB
-      max-request-size: 10MB
+#  servlet:
+#    multipart:
+#      max-file-size: 2MB
+#      max-request-size: 10MB
   mail:
     protocol: smtp
     host: smtp.163.com
@@ -71,3 +71,4 @@ sob:
     system:
       image:
         save-path: E:/sob_blog_system_images
+        max-size: 2097152 #2MB

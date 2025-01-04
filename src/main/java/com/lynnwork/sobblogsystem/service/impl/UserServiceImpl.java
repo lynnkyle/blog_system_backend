@@ -237,9 +237,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     /*
         修改用户密码(修改密码、找回密码)
         普通做法(只可以修改用户密码):
-            通过旧密码对比来更新密码;
+             通过旧密码对比来更新密码;
         高级做法(即可以找回密码，也可以修改密码):
-            发送邮箱/手机验证码，通过判断验证码是否正确来判断对应邮箱/手机号码所注册的账号是否属于用户。
+             发送邮箱/手机验证码，通过判断验证码是否正确来判断对应邮箱/手机号码所注册的账号是否属于用户。
      */
     @Override
     public ResponseResult updatePassword(String emailCode, User user) {
@@ -450,7 +450,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         //4.1 返回tokenKey,即token的md5值,返回给前端并将(tokenKey, token)存储到redis中
         String tokenKey = DigestUtils.md5DigestAsHex(token.getBytes());
         redisUtil.set(Constants.User.KEY_TOKEN_CONTENT + tokenKey, token, Constants.TimeValueInSecond.HOUR_2);
-        CookieUtils.setUpCookie(resp, Constants.User.KEY_COOKIE_TOKEN, tokenKey, Constants.TimeValueInSecond.HOUR_2);
+        CookieUtils.setUpCookie(resp, Constants.User.KEY_COOKIE_TOKEN, tokenKey, Constants.TimeValueInSecond.WEEK);
         String refreshTokenValue = JwtUtil.createRefreshToken(userFromDbByNameOrEmail.getId(), Constants.TimeValueInMillions.MONTH);
         RefreshToken refreshToken = new RefreshToken();
         refreshToken.setId(String.valueOf(idWorker.nextId()));
@@ -573,6 +573,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         if (!TextUtil.isEmpty(state)) {
             userFromDb.setState(state);
         }
+        userFromDb.setUpdateTime(new Date());
         userMapper.updateById(userFromDb);
         //4.更新token信息(删除Token中的错误信息,下次需要时从refreshToken中取出)
         String tokenKey = CookieUtils.getCookieValue(getRequest(), Constants.User.KEY_COOKIE_TOKEN);

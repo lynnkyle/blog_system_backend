@@ -1,8 +1,7 @@
 package com.lynnwork.sobblogsystem.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-
-import java.awt.*;
+import com.lynnwork.sobblogsystem.pojo.Image;
 
 /**
  * <p>

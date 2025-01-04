@@ -1,11 +1,11 @@
 package com.lynnwork.sobblogsystem.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.lynnwork.sobblogsystem.pojo.Image;
 import com.lynnwork.sobblogsystem.response.ResponseResult;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
-import java.awt.*;
 import java.io.IOException;
 
 /**
@@ -20,5 +20,5 @@ public interface IImageService extends IService<Image> {
 
     ResponseResult uploadImage(MultipartFile file);
 
-    void getImage(String imageId, HttpServletResponse resp) throws IOException;
+    void getImage(String url, HttpServletResponse resp) throws IOException;
 }

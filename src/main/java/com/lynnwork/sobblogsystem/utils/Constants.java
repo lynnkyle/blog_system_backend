@@ -13,6 +13,21 @@ public interface Constants {
         String KEY_COOKIE_TOKEN = "sob_blog_token";
     }
 
+    interface Image {
+        String DEFAULT_STATE = "1";
+    }
+
+    interface ImageType {
+        String PREFIX = "image/";
+        String TYPE_JPG = "jpg";
+        String TYPE_JPEG = "jpeg";
+        String TYPE_PNG = "png";
+        String TYPE_GIF = "gif";
+        String TYPE_JPEG_WITH_PREFIX = PREFIX + "jpeg";
+        String TYPE_PNG_WITH_PREFIX = PREFIX + "png";
+        String TYPE_GIF_WITH_PREFIX = PREFIX + "gif";
+    }
+
     interface Setting {
         String ADMIN_ACCOUNT_INIT_STATE = "admin_account_init_state";
     }

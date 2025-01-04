@@ -72,7 +72,6 @@ public class FriendLinkServiceImpl extends ServiceImpl<FriendLinkMapper, FriendL
             return ResponseResult.FAILED("友情链接不存在。");
         }
         //2.更改数据(检查数据)
-        friendLink.setId(friendLinkFromDbById.getId());
         String name = friendLink.getName();
         if (!TextUtil.isEmpty(name)) {
             friendLinkFromDbById.setName(name);
@@ -92,7 +91,7 @@ public class FriendLinkServiceImpl extends ServiceImpl<FriendLinkMapper, FriendL
         }
         friendLinkFromDbById.setUpdateTime(new Date());
         //3.保存数据
-        friendLinkMapper.updateById(friendLink);
+        friendLinkMapper.updateById(friendLinkFromDbById);
         //4.返回结果
         return ResponseResult.SUCCESS("更新友情连接成功");
     }

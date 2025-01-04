@@ -33,13 +33,18 @@ public class ImageController {
         return imageService.uploadImage(file);
     }
 
-    @GetMapping("/{imageId}")
-    public void getImage(@PathVariable String imageId, HttpServletResponse resp) {
+    @GetMapping("/{url}")
+    public void getImage(@PathVariable String url, HttpServletResponse resp) {
         try {
-            imageService.getImage(imageId, resp);
+            imageService.getImage(url, resp);
         } catch (IOException e) {
             log.error(e.getMessage());
         }
+    }
+    @PreAuthorize("@permission.admin()")
+    @GetMapping("/list")
+    public void listImage(@RequestParam("page") int page,@RequestParam("size") int size){
+
     }
 
 }

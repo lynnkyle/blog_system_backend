@@ -115,8 +115,9 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
         if (!TextUtil.isEmpty(state)) {
             categoryFromDbById.setState(state);
         }
+        categoryFromDbById.setUpdateTime(new Date());
         //3.保存数据
-        categoryMapper.updateById(category);
+        categoryMapper.updateById(categoryFromDbById);
         //4.返回结果
         return ResponseResult.SUCCESS("分类更新成功。");
     }
