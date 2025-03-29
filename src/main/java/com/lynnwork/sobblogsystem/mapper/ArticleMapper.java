@@ -1,5 +1,6 @@
 package com.lynnwork.sobblogsystem.mapper;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lynnwork.sobblogsystem.pojo.Article;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 

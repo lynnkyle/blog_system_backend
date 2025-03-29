@@ -2,6 +2,7 @@ package com.lynnwork.sobblogsystem.service;
 
 import com.lynnwork.sobblogsystem.pojo.Article;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.lynnwork.sobblogsystem.response.ResponseResult;
 
 /**
  * <p>
@@ -13,4 +14,13 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IArticleService extends IService<Article> {
 
+    ResponseResult postArticle(Article article);
+
+    ResponseResult getArticle(String articleId);
+
+    ResponseResult updateArticle(String articleId);
+
+    ResponseResult deleteArticle(String articleId);
+
+    ResponseResult listArticles(int page, int size, String keyword, String categoryId, String state);
 }

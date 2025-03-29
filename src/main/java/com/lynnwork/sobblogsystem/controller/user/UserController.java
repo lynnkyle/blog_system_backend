@@ -172,8 +172,8 @@ public class UserController {
         @Return
      */
     @PreAuthorize("@permission.admin()")
-    @GetMapping("/list")
-    public ResponseResult listUsers(@RequestParam("page") int page, @RequestParam("size") int size) {
+    @GetMapping("/list/{page}/{size}")
+    public ResponseResult listUsers(@PathVariable("page") int page, @PathVariable("size") int size) {
         return userService.listUsers(page, size);
     }
 

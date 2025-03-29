@@ -1,6 +1,9 @@
 package com.lynnwork.sobblogsystem.service.impl;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.api.R;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lynnwork.sobblogsystem.mapper.ImageMapper;
 import com.lynnwork.sobblogsystem.pojo.Image;
@@ -75,7 +78,7 @@ public class ImageServiceImpl extends ServiceImpl<ImageMapper, Image> implements
         // 限制文件大小
         long size = file.getSize();
         if (size > maxSize) {
-            return ResponseResult.FAILED("图片最大仅支持" + (maxSize / 1024 / 1024) + "MB");
+            return ResponseResult.FAILED("图片最大仅支持" + (maxSize / 1024 / 1024) + "MB。");
         }
         //2.保存文件(文件+数据库记录)  dayPath: 保存路径
         // 保存文件到指定目录
@@ -114,7 +117,7 @@ public class ImageServiceImpl extends ServiceImpl<ImageMapper, Image> implements
             image.setCreateTime(new Date());
             image.setUpdateTime(new Date());
             imageMapper.insert(image);
-            return ResponseResult.SUCCESS("文件上传成功。").setData(result);
+            return ResponseResult.SUCCESS("图片上传成功。").setData(result);
         } catch (Exception e) {
             log.error(e.getMessage());
         }
@@ -138,7 +141,6 @@ public class ImageServiceImpl extends ServiceImpl<ImageMapper, Image> implements
         String millions = paths[0];
         String datePath = new SimpleDateFormat("yyyy_MM_dd").format(new Date(Long.parseLong(millions)));
         String name = paths[1];
-        log.info("contentType{}", contentType);
         String type = getType(contentType);
         String targetPath = imagePath + File.separator + datePath + File.separator + type + File.separator + name;
         // 3.将目标文件写入response的响应体中
@@ -163,6 +165,29 @@ public class ImageServiceImpl extends ServiceImpl<ImageMapper, Image> implements
                 fos.close();
             }
         }
+    }
+
+    @Override
+    public ResponseResult listImages(int page, int size) {
+        if (page < Constants.Page.DEFAULT_PAGE) {
+            page = Constants.Page.DEFAULT_PAGE;
+        }
+        if (size < Constants.Page.DEFAULT_SIZE) {
+            size = Constants.Page.DEFAULT_SIZE;
+        }
+        User user = userService.checkUser();
+        IPage<Image> iPage = new Page<>(page, size);
+        IPage<Image> iPageByDb = imageMapper.selectPageVo(iPage, user.getId());
+        return ResponseResult.SUCCESS("获取图片列表成功。").setData(iPageByDb);
+    }
+
+    @Override
+    public ResponseResult deleteImage(String imageId) {
+        int res = imageMapper.deleteImageByState(imageId);
+        if (res <= 0) {
+            return ResponseResult.FAILED("删除图片失败。");
+        }
+        return ResponseResult.SUCCESS("删除图片成功。");
     }
 
     public String getType(String contentType) {

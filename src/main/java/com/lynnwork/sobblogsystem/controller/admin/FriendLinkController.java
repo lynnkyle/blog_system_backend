@@ -42,8 +42,8 @@ public class FriendLinkController {
     }
 
     @PreAuthorize("@permission.admin()")
-    @GetMapping("/list")
-    public ResponseResult listFriendLinks(@RequestParam("page") int page, @RequestParam("sizes") int size) {
+    @GetMapping("/list/{page}/{size}")
+    public ResponseResult listFriendLinks(@PathVariable("page") int page, @PathVariable("size") int size) {
         return friendLinkService.listFriendLinks(page, size);
     }
 

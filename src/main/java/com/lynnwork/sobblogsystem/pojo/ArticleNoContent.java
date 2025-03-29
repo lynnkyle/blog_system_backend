@@ -1,12 +1,11 @@
 package com.lynnwork.sobblogsystem.pojo;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.util.Date;
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 /**
  * <p>
@@ -19,7 +18,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("tb_article")
-public class Article implements Serializable {
+public class ArticleNoContent implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -59,11 +58,6 @@ public class Article implements Serializable {
     private String cover;
 
     /**
-     * 内容
-     */
-    private String content;
-
-    /**
      * 类型(0: 富文本, 1: markdown)
      */
     private String type;
@@ -100,3 +94,4 @@ public class Article implements Serializable {
 
 
 }
+

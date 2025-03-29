@@ -47,7 +47,7 @@ public class ResponseResult {
     }
 
     public static ResponseResult ERROR_403() {
-        return new ResponseResult(ResponseState.ERROR_404);
+        return new ResponseResult(ResponseState.ERROR_403);
     }
 
     public static ResponseResult ERROR_404() {

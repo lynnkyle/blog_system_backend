@@ -3,6 +3,7 @@ package com.lynnwork.sobblogsystem.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.lynnwork.sobblogsystem.pojo.Image;
 import com.lynnwork.sobblogsystem.response.ResponseResult;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
@@ -21,4 +22,8 @@ public interface IImageService extends IService<Image> {
     ResponseResult uploadImage(MultipartFile file);
 
     void getImage(String url, HttpServletResponse resp) throws IOException;
+
+    ResponseResult listImages(int page, int size);
+
+    ResponseResult deleteImage(@Param("imageId") String imageId);
 }

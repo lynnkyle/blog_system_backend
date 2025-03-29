@@ -12,7 +12,7 @@ public class GeneratorCodes {
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
-        gc.setOutputDir("C:/Users/kyle/Desktop/阳光沙滩工具/dev_demo/blog_system_backend/src/main/java");   //输出路径
+        gc.setOutputDir("C:/Users/kyle/Desktop/阳光沙滩工具/SobBlogSystemBackend/src/main/java");   //输出路径
         gc.setAuthor("lynnkyle");   //作者
         gc.setOpen(false);  //生成以后是否打开文件夹
         //gc.setSwagger2(true); //实体属性 Swagger2 注解
@@ -46,7 +46,7 @@ public class GeneratorCodes {
         // 分割多张表
         strategy.setTablePrefix("tb_");
         // [important!!!] 填写表名
-        strategy.setInclude("tb_image");
+        strategy.setInclude("tb_looper");
         strategy.setControllerMappingHyphenStyle(true);
         // strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);

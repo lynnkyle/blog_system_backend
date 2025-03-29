@@ -33,6 +33,7 @@ public class ImageController {
         return imageService.uploadImage(file);
     }
 
+    @PreAuthorize("@permission.admin()")
     @GetMapping("/{url}")
     public void getImage(@PathVariable String url, HttpServletResponse resp) {
         try {
@@ -41,10 +42,17 @@ public class ImageController {
             log.error(e.getMessage());
         }
     }
-    @PreAuthorize("@permission.admin()")
-    @GetMapping("/list")
-    public void listImage(@RequestParam("page") int page,@RequestParam("size") int size){
 
+    @PreAuthorize("@permission.admin()")
+    @GetMapping("/list/{page}/{size}")
+    public ResponseResult listImages(@PathVariable("page") int page, @PathVariable("size") int size) {
+        return imageService.listImages(page, size);
+    }
+
+    @PreAuthorize("@permission.admin()")
+    @DeleteMapping("/{imageId}")
+    public ResponseResult deleteImage(@PathVariable("imageId") String imageId) {
+        return imageService.deleteImage(imageId);
     }
 
 }

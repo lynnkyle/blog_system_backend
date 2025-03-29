@@ -32,11 +32,28 @@ public interface Constants {
         String ADMIN_ACCOUNT_INIT_STATE = "admin_account_init_state";
     }
 
+    interface Article {
+        String DEFAULT_STATE = "1";
+        String TITLE_TYPE_TEXT = "0";
+        String TITLE_TYPE_MARKDOWN = "1";
+        int TITLE_MAX_LENGTH = 128;
+        int SUMMARY_MAX_LENGTH = 256;
+        String STATE_PUBLISH = "0"; // 发布状态
+        String STATE_DRAFT = "1"; // 草稿状态
+        String STATE_DELETE = "2"; // 删除状态
+        String STATE_TOP = "3"; // 置顶状态
+
+    }
+
     interface Category {
         String DEFAULT_STATE = "1";
     }
 
     interface FriendLink {
+        String DEFAULT_STATE = "1";
+    }
+
+    interface Looper {
         String DEFAULT_STATE = "1";
     }
 

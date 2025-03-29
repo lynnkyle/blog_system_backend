@@ -11,6 +11,7 @@
                create_time,
                update_time
         from tb_category
+        where state = 1
         order by create_time DESC
     </select>
     <delete id="deleteCategoryByState">

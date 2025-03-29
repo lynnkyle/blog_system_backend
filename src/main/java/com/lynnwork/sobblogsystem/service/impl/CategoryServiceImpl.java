@@ -45,9 +45,6 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
         if (TextUtil.isEmpty(category.getPinyin())) {
             return ResponseResult.FAILED("分类拼音不可以为空。");
         }
-        if (TextUtil.isEmpty(String.valueOf(category.getOrder()))) {
-            return ResponseResult.FAILED("分类顺序不可以为空。");
-        }
         if (TextUtil.isEmpty(category.getDescription())) {
             return ResponseResult.FAILED("分类描述不可以为空。");
         }

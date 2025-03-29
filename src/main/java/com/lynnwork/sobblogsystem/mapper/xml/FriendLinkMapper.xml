@@ -11,6 +11,8 @@
                create_time,
                update_time
         from tb_friend_link
+        where state = 1
+        order by create_time DESC
     </select>
     <update id="deleteFriendLink">
         update tb_friend_link
