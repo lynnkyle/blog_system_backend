@@ -130,7 +130,9 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     @Override
     public ResponseResult getArticle(String articleId) {
         // 1.查询文章
-        Article article = articleMapper.selectById(articleId);
+        Article article = articleMapper.getArticleWithUserProfile(articleId);
+        User user_ = article.getUser();
+        log.info("user===>", user_);
         if (article == null) {
             return ResponseResult.FAILED("文章不存在。");
         }

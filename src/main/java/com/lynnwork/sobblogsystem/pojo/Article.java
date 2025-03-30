@@ -1,5 +1,6 @@
 package com.lynnwork.sobblogsystem.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
@@ -32,6 +33,9 @@ public class Article implements Serializable {
      * 用户ID
      */
     private String userId;
+
+    @TableField(exist = false)
+    private User user;
 
     /**
      * 用户头像
@@ -97,6 +101,4 @@ public class Article implements Serializable {
      * 更新时间
      */
     private Date updateTime;
-
-
 }
