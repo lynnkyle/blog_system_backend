@@ -117,8 +117,49 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         return ResponseResult.SUCCESS(Constants.Article.STATE_PUBLISH.equals(state) ? "文章发表成功。" : "草稿保存成功。").setData(article.getId());
     }
 
+    /**
+     * 更新文章内容
+     * @param articleId
+     * @param article
+     * @return
+     */
     @Override
-    public ResponseResult updateArticle(String articleId) {
+    public ResponseResult updateArticle(String articleId, Article article) {
+        // 1.查找数据
+        Article articleFromDbById = articleMapper.selectById(articleId);
+
+        // 2.更改数据(检查数据)
+        String title = article.getTitle();
+        if (!TextUtil.isEmpty(title)) {
+            articleFromDbById.setTitle(title);
+        }
+        String cover = article.getCover();
+        if (!TextUtil.isEmpty(cover)) {
+            articleFromDbById.setCover(cover);
+        }
+        String content = article.getContent();
+        if (!TextUtil.isEmpty(content)) {
+            articleFromDbById.setCover(content);
+        }
+        String type = article.getType();
+        if (!TextUtil.isEmpty(type)) {
+            articleFromDbById.setType(type);
+        }
+        String state = article.getState();
+        if (!TextUtil.isEmpty(state)) {
+            articleFromDbById.setState(state);
+        }
+        String summary = article.getSummary();
+        if (!TextUtil.isEmpty(summary)) {
+            articleFromDbById.setSummary(summary);
+        }
+        String labels = article.getLabels();
+        if (!TextUtil.isEmpty(labels)) {
+            articleFromDbById.setLabels(labels);
+        }
+        int viewCount = article.getViewCount();
+        articleFromDbById.setViewCount(viewCount);
+        articleFromDbById.setUpdateTime(new Date());
         return null;
     }
 

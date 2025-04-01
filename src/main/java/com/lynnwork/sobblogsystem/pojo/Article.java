@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -86,6 +89,20 @@ public class Article implements Serializable {
      * 标签
      */
     private String labels;
+
+    public void setLabels(String labels) {
+        if (!labels.contains("-")) {
+            this.label_list.add(labels);
+        } else {
+            String[] split = labels.split("-");
+            List<String> strings = Arrays.asList(split);
+            this.label_list.addAll(strings);
+        }
+        this.labels = labels;
+    }
+
+    @TableField(exist = false)
+    private List<String> label_list = new ArrayList<>();
 
     /**
      * 浏览量

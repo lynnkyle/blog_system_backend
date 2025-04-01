@@ -36,8 +36,8 @@ public class ArticleController {
 
     @PreAuthorize("@permission.admin()")
     @PutMapping("/{articleId}")
-    public ResponseResult updateArticle(@PathVariable("articleId") String articleId) {
-        return articleService.updateArticle(articleId);
+    public ResponseResult updateArticle(@PathVariable("articleId") String articleId, @RequestBody Article article) {
+        return articleService.updateArticle(articleId, article);
     }
 
     @PreAuthorize("@permission.admin()")

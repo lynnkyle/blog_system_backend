@@ -18,7 +18,7 @@ public interface IArticleService extends IService<Article> {
 
     ResponseResult getArticle(String articleId);
 
-    ResponseResult updateArticle(String articleId);
+    ResponseResult updateArticle(String articleId, Article article);
 
     ResponseResult deleteArticle(String articleId);
 
