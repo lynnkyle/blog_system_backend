@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lynnwork.sobblogsystem.mapper.ArticleNoContentMapper;
-import com.lynnwork.sobblogsystem.mapper.UserMapper;
 import com.lynnwork.sobblogsystem.pojo.Article;
 import com.lynnwork.sobblogsystem.mapper.ArticleMapper;
 import com.lynnwork.sobblogsystem.pojo.ArticleNoContent;
@@ -127,8 +126,14 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     public ResponseResult updateArticle(String articleId, Article article) {
         // 1.查找数据
         Article articleFromDbById = articleMapper.selectById(articleId);
-
+        if (articleFromDbById == null) {
+            return ResponseResult.FAILED("文章不存在。");
+        }
         // 2.更改数据(检查数据)
+        String categoryId = article.getCategoryId();
+        if (!TextUtil.isEmpty(categoryId)) {
+            articleFromDbById.setCategoryId(categoryId);
+        }
         String title = article.getTitle();
         if (!TextUtil.isEmpty(title)) {
             articleFromDbById.setTitle(title);
@@ -139,16 +144,16 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         }
         String content = article.getContent();
         if (!TextUtil.isEmpty(content)) {
-            articleFromDbById.setCover(content);
+            articleFromDbById.setContent(content);
         }
-        String type = article.getType();
-        if (!TextUtil.isEmpty(type)) {
-            articleFromDbById.setType(type);
-        }
-        String state = article.getState();
-        if (!TextUtil.isEmpty(state)) {
-            articleFromDbById.setState(state);
-        }
+//        String type = article.getType();
+//        if (!TextUtil.isEmpty(type)) {
+//            articleFromDbById.setType(type);
+//        }
+//        String state = article.getState();
+//        if (!TextUtil.isEmpty(state)) {
+//            articleFromDbById.setState(state);
+//        }
         String summary = article.getSummary();
         if (!TextUtil.isEmpty(summary)) {
             articleFromDbById.setSummary(summary);
@@ -156,11 +161,13 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         String labels = article.getLabels();
         if (!TextUtil.isEmpty(labels)) {
             articleFromDbById.setLabels(labels);
+            articleFromDbById.setLabel_list(article.getLabel_list());
         }
-        int viewCount = article.getViewCount();
-        articleFromDbById.setViewCount(viewCount);
+//        int viewCount = article.getViewCount();
+//        articleFromDbById.setViewCount(viewCount);
         articleFromDbById.setUpdateTime(new Date());
-        return null;
+        articleMapper.updateById(articleFromDbById);
+        return ResponseResult.SUCCESS("文章更新成功。");
     }
 
     /**
@@ -172,8 +179,6 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     public ResponseResult getArticle(String articleId) {
         // 1.查询文章
         Article article = articleMapper.getArticleWithUserProfile(articleId);
-        User user_ = article.getUser();
-        log.info("user===>", user_);
         if (article == null) {
             return ResponseResult.FAILED("文章不存在。");
         }
@@ -190,10 +195,18 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         return ResponseResult.SUCCESS("获取文章成功。").setData(article);
     }
 
+    /**
+     * 删除文章(多用户情况下, 用户不可以删除, 删除只是修改状态； 管理员可以删除, 删除会直接删除数据库中得内容)
+     * @param articleId
+     * @return
+     */
     @Override
     public ResponseResult deleteArticle(String articleId) {
-
-        return null;
+        int result = articleMapper.deleteById(articleId);
+        if (result > 0) {
+            return ResponseResult.SUCCESS("文章删除成功。");
+        }
+        return ResponseResult.FAILED("文章不存在。");
     }
 
     /**

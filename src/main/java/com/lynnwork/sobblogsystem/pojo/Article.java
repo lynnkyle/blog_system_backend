@@ -90,15 +90,19 @@ public class Article implements Serializable {
      */
     private String labels;
 
-    public void setLabels(String labels) {
-        if (!labels.contains("-")) {
-            this.label_list.add(labels);
-        } else {
-            String[] split = labels.split("-");
-            List<String> strings = Arrays.asList(split);
-            this.label_list.addAll(strings);
+    public String getLabels() {
+        // 1.打散到集合里
+        label_list.clear();
+        if (labels != null) {
+            if (!labels.contains("-")) {
+                label_list.add(labels);
+            } else {
+                String[] split = labels.split("-");
+                List<String> strings = Arrays.asList(split);
+                label_list.addAll(strings);
+            }
         }
-        this.labels = labels;
+        return labels;
     }
 
     @TableField(exist = false)
